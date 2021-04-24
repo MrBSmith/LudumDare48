@@ -8,6 +8,7 @@ onready var area = get_node("Area2D")
 
 var in_inventory = false
 var player_in_area = false
+var is_collected = false
 
 #### ACCESSORS ####
 
@@ -20,7 +21,6 @@ func _ready() -> void:
 	var __ = area.connect("body_entered", self, "_on_body_entered")
 	__ = area.connect("body_exited", self, "_on_body_exited")
 
-
 #### VIRTUALS ####
 
 
@@ -32,8 +32,10 @@ func _ready() -> void:
 #### INPUTS ####
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("action") && player_in_area:
+	if Input.is_action_just_pressed("action") && player_in_area && !is_collected:
+		is_collected = true
 		EVENTS.emit_signal("collect", self)
+		queue_free()
 
 #### SIGNAL RESPONSES ####
 
@@ -43,3 +45,4 @@ func _on_body_entered(body: PhysicsBody2D) -> void:
 	
 func _on_body_exited(body: PhysicsBody2D) -> void:
 	player_in_area = false
+	
