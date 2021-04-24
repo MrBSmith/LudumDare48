@@ -29,6 +29,9 @@ func set_state(state: String):
 
 #### BUILT-IN ####
 
+func _ready() -> void:
+	EVENTS.connect("collect", self, "on_collect")
+
 func _physics_process(delta: float) -> void:
 	if !ignore_gravity:
 		velocity.y += GRAVITY
@@ -63,3 +66,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 #### SIGNAL RESPONSES ####
 
+func on_collect(item: Item) -> void:
+	item.queue_free();
+	# @TODO add it to the inventory
