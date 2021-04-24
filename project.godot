@@ -8,8 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Perso",
+"language": "GDScript",
+"path": "res://scenes/perso/Perso.gd"
+} ]
 _global_script_class_icons={
+"Perso": ""
 }
 
 [application]
