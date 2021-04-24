@@ -10,17 +10,18 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
-"class": "Perso",
+"class": "Player",
 "language": "GDScript",
-"path": "res://scenes/perso/Perso.gd"
+"path": "res://scenes/player/Player.gd"
 } ]
 _global_script_class_icons={
-"Perso": ""
+"Player": ""
 }
 
 [application]
 
 config/name="Ludum Dare 48"
+run/main_scene="res://scenes/level/Level.tscn"
 config/icon="res://icon.png"
 
 [input]
