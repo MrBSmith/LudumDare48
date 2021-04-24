@@ -7,6 +7,8 @@ const SPEED = 300
 const JUMP_SPEED = 400
 const GRAVITY = 20
 
+onready var state_machine = get_node("StatesMachine")
+
 var horizontal_direction = 0
 var vertical_direction = 0
 var velocity := Vector2(0, 0)
@@ -19,6 +21,12 @@ export var ignore_gravity := false
 func is_class(value: String): return value == CLASS_NAME or .is_class(value)
 func get_class() -> String: return CLASS_NAME
 
+func get_state():
+	return state_machine.get_state()
+	
+func set_state(state: String):
+	return state_machine.set_state(state)
+
 #### BUILT-IN ####
 
 func _physics_process(delta: float) -> void:
@@ -30,7 +38,10 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 	if is_on_floor():
-		is_jumping = false
+		if horizontal_direction != 0:
+			set_state("Move")
+		else:
+			set_state("Idle")
 
 #### VIRTUALS ####
 
@@ -38,19 +49,17 @@ func _physics_process(delta: float) -> void:
 
 #### LOGIC ####
 
-
+func jump():
+	velocity.y -= JUMP_SPEED
+	set_state("Fall")
 
 #### INPUTS ####
 
 func _unhandled_input(event: InputEvent) -> void:
 	horizontal_direction = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	
-	if Input.is_action_just_pressed("jump") && !is_jumping:
-		_jump()
-	
-func _jump() -> void:
-	velocity.y -= JUMP_SPEED
-	is_jumping = true
+	if Input.is_action_just_pressed("jump") && get_state().name in ["Idle", "Move"]:
+		set_state("Jump")
 
 #### SIGNAL RESPONSES ####
 
