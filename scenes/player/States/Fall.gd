@@ -16,7 +16,7 @@ func get_class() -> String: return CLASS_NAME
 
 #### VIRTUALS ####
 
-func update_state(delta: float):
+func update_state(_delta: float):
 	if owner.is_on_floor():
 		return "Idle"
 

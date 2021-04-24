@@ -1,13 +1,8 @@
-extends Node2D
-
+extends InteractiveObj
 class_name Item
-
 const CLASS_NAME = 'Item'
 
-onready var area = get_node("Area2D")
-
 var in_inventory = false
-var player_in_area = false
 var is_collected = false
 
 #### ACCESSORS ####
@@ -17,9 +12,7 @@ func get_class() -> String: return CLASS_NAME
 
 #### BUILT-IN ####
 
-func _ready() -> void:
-	var __ = area.connect("body_entered", self, "_on_body_entered")
-	__ = area.connect("body_exited", self, "_on_body_exited")
+
 
 #### VIRTUALS ####
 
@@ -27,11 +20,12 @@ func _ready() -> void:
 
 #### LOGIC ####
 
-
+func interact():
+	pass
 
 #### INPUTS ####
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("action") && player_in_area && !is_collected:
 		is_collected = true
 		EVENTS.emit_signal("collect", self)
@@ -39,10 +33,3 @@ func _unhandled_input(event: InputEvent) -> void:
 
 #### SIGNAL RESPONSES ####
 
-func _on_body_entered(body: PhysicsBody2D) -> void:
-	player_in_area = true
-
-	
-func _on_body_exited(body: PhysicsBody2D) -> void:
-	player_in_area = false
-	

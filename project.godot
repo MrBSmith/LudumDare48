@@ -117,7 +117,7 @@ _global_script_classes=[ {
 "base": "ActorStateBase",
 "class": "Fall",
 "language": "GDScript",
-"path": "res://scenes/player/Fall.gd"
+"path": "res://scenes/player/States/Fall.gd"
 }, {
 "base": "Node",
 "class": "GameLoader",
@@ -147,7 +147,12 @@ _global_script_classes=[ {
 "base": "ActorStateBase",
 "class": "Idle",
 "language": "GDScript",
-"path": "res://scenes/player/Idle.gd"
+"path": "res://scenes/player/States/Idle.gd"
+}, {
+"base": "Node",
+"class": "InteractiveObj",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/InteractiveObj.gd"
 }, {
 "base": "Node2D",
 "class": "InteractiveObject",
@@ -214,15 +219,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoSprite.gd"
 }, {
-"base": "Node2D",
+"base": "InteractiveObj",
 "class": "Item",
 "language": "GDScript",
-"path": "res://scenes/item/Item.gd"
+"path": "res://scenes/InteractiveObjects/item/Item.gd"
 }, {
 "base": "ActorStateBase",
 "class": "Jump",
 "language": "GDScript",
-"path": "res://scenes/player/Jump.gd"
+"path": "res://scenes/player/States/Jump.gd"
 }, {
 "base": "Node",
 "class": "LevelLoader",
@@ -277,7 +282,7 @@ _global_script_classes=[ {
 "base": "ActorStateBase",
 "class": "Move",
 "language": "GDScript",
-"path": "res://scenes/player/Move.gd"
+"path": "res://scenes/player/States/Move.gd"
 }, {
 "base": "PushdownAutomata",
 "class": "NestedPushdownAutomata",
@@ -488,6 +493,7 @@ _global_script_class_icons={
 "IconsLineContainer": "",
 "IconsLineData": "",
 "Idle": "",
+"InteractiveObj": "",
 "InteractiveObject": "",
 "Inventory": "",
 "IsoAnimatedSprite": "",
@@ -561,6 +567,38 @@ config/icon="res://icon.png"
 [autoload]
 
 EVENTS="*res://Autoloads/Events.gd"
+
+[display]
+
+window/size/width=320
+window/size/height=180
+window/size/test_width=640
+window/size/test_height=360
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 

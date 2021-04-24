@@ -1,5 +1,4 @@
 extends CanvasLayer
-
 class_name Inventory
 
 const CLASS_NAME = 'Inventory'
@@ -14,9 +13,9 @@ func get_class() -> String: return CLASS_NAME
 #### BUILT-IN ####
 
 func _ready() -> void:
-	EVENTS.connect("collect", self, "_on_collect")
+	var __ = EVENTS.connect("collect", self, "_on_collect")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass;
 
 #### VIRTUALS ####

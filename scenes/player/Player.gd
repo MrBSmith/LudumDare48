@@ -1,5 +1,4 @@
 extends KinematicBody2D
-
 class_name Player
 
 const CLASS_NAME = 'Player'
@@ -30,9 +29,9 @@ func set_state(state: String):
 #### BUILT-IN ####
 
 func _ready() -> void:
-	EVENTS.connect("collect", self, "_on_collect")
+	var __ = EVENTS.connect("collect", self, "_on_collect")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !ignore_gravity:
 		velocity.y += GRAVITY
 
@@ -58,7 +57,7 @@ func jump():
 
 #### INPUTS ####
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	horizontal_direction = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	
 	if Input.is_action_just_pressed("jump") && get_state().name in ["Idle", "Move"]:
@@ -66,6 +65,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 #### SIGNAL RESPONSES ####
 
-func _on_collect(item: Item) -> void:
+func _on_collect(_item: Item) -> void:
 	# @TODO add animation
 	pass
