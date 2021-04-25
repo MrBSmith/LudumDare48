@@ -64,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/AbstractStates/Appear.gd"
 }, {
-"base": "InteractiveObj",
+"base": "Item",
 "class": "Bomb",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/item/Bomb/Bomb.gd"
@@ -244,7 +244,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/player/States/Jump.gd"
 }, {
-"base": "InteractiveObj",
+"base": "Item",
 "class": "Key",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/item/Key/Key.gd"
@@ -327,7 +327,7 @@ _global_script_classes=[ {
 "base": "ObstacleState",
 "class": "ObstacleIdle",
 "language": "GDScript",
-"path": "res://scenes/InteractiveObjects/ObstacleObj/Idle.gd"
+"path": "res://scenes/InteractiveObjects/ObstacleObj/State/Idle.gd"
 }, {
 "base": "InteractiveObj",
 "class": "ObstacleObj",

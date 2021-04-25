@@ -1,13 +1,12 @@
 extends InteractiveObj
 class_name Item
-const CLASS_NAME = 'Item'
 
 var is_collected = false
 
 #### ACCESSORS ####
 
-func is_class(value: String): return value == CLASS_NAME or .is_class(value)
-func get_class() -> String: return CLASS_NAME
+func is_class(value: String): return value == 'Item' or .is_class(value)
+func get_class() -> String: return 'Item'
 
 #### BUILT-IN ####
 

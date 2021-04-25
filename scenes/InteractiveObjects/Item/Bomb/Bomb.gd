@@ -1,4 +1,4 @@
-extends InteractiveObj
+extends Item
 class_name Bomb
 
 const CLASS_NAME = 'Bomb'

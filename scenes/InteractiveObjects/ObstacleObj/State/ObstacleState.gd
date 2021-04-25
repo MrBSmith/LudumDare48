@@ -2,7 +2,7 @@ extends StateBase
 
 class_name ObstacleState
 
-onready var animated_sprite = get_node_or_null("AnimatedSprite")
+onready var animated_sprite = owner.get_node_or_null("AnimatedSprite")
 
 #### ACCESSORS ####
 

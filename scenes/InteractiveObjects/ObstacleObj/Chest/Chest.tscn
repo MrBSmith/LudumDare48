@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Chest/Chest.png" type="Texture" id=2]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Chest/Chest.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=8]
 radius = 30.0
 
 [sub_resource type="AtlasTexture" id=2]
@@ -49,7 +49,7 @@ animations = [ {
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 frames = SubResource( 7 )

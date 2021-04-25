@@ -9,7 +9,7 @@ func get_class() -> String: return 'ObstacleObj'
 
 #### BUILT-IN ####
 
-func _on_ready():
+func _ready():
 	var __ = EVENTS.connect("open", self, "_on_open")
 
 #### VIRTUALS ####
@@ -20,7 +20,7 @@ func _on_ready():
 
 func _on_open(obstacle: ObstacleObj):
 	if self == obstacle:
-		$StatesMachine.set_state("Open")
+		$StatesMachine.set_state("Opened")
 
 #### INPUTS ####
 
@@ -29,3 +29,4 @@ func _unhandled_input(_event: InputEvent) -> void:
 		EVENTS.emit_signal("try_opening", self)
 
 #### SIGNAL RESPONSES ####
+

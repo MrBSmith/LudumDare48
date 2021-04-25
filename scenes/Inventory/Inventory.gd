@@ -25,14 +25,13 @@ func _ready() -> void:
 #### INPUTS ####
 
 
-
 #### SIGNAL RESPONSES ####
 
 func _on_collect(item: Item) -> void:
 	var newItem: Item = item.duplicate()
 	newItem.set_position(Vector2.ZERO)
 	item_container.add_item(newItem)
-	
+
 func _on_try_opening(obstable: ObstacleObj) -> void:
 	match obstable.get_class():
 		"Chest":

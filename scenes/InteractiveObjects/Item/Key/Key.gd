@@ -1,4 +1,4 @@
-extends InteractiveObj
+extends Item
 class_name Key
 
 const CLASS_NAME = 'Key'
