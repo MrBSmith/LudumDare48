@@ -28,3 +28,7 @@ func enter_state():
 
 
 #### SIGNAL RESPONSES ####
+
+func _on_animation_finished():
+	if is_current_state():
+		states_machine.set_state("Fall")
