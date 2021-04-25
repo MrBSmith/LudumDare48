@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/ObstacleObj.tscn" type="PackedScene" id=1]
+
+[node name="Crumble" instance=ExtResource( 1 )]
