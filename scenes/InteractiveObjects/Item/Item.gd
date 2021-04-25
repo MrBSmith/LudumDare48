@@ -1,3 +1,4 @@
+tool
 extends InteractiveObj
 class_name Item
 
@@ -17,6 +18,9 @@ func get_class() -> String: return 'Item'
 
 
 #### LOGIC ####
+
+func destroy() -> void:
+	queue_free()
 
 #### INPUTS ####
 

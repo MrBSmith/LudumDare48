@@ -31,12 +31,12 @@ func count_items() -> int:
 
 	return count
 
-func has_item(item_name: String) -> bool:
+func get_item(item_name: String) -> Item:
 	for child in get_children():
 		if child.is_class(item_name):
-			return true
-	
-	return false;
+			return child
+
+	return null;
 
 #### INPUTS ####
 

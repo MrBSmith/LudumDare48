@@ -30,10 +30,13 @@ func _ready() -> void:
 func _on_collect(item: Item) -> void:
 	var newItem: Item = item.duplicate()
 	newItem.set_position(Vector2.ZERO)
+	newItem.set_hidden(false)
 	item_container.add_item(newItem)
 
 func _on_try_opening(obstable: ObstacleObj) -> void:
 	match obstable.get_class():
 		"Chest":
-			if item_container.has_item("Key"):
+			var item : Item = item_container.get_item("Key")
+			if item != null:
+				item.destroy()
 				EVENTS.emit_signal("open", obstable)

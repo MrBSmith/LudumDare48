@@ -164,7 +164,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Player/States/Idle.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "InteractiveObj",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/InteractiveObj.gd"
