@@ -19,6 +19,16 @@ func _ready() -> void:
 
 #### LOGIC ####
 
+func get_interactives() -> Array:
+	var objects_array = []
+	for child in get_children():
+		if child is InteractiveObj:
+			objects_array.append(child)
+	return objects_array
+
+
+func fade_transition():
+	$FadeTransition.fade()
 
 
 #### INPUTS ####
@@ -29,6 +39,8 @@ func _ready() -> void:
 
 func _on_increment_level_variation():
 	$StatesMachine.increment_state()
+	fade_transition()
 
 func _on_decrement_level_variation():
 	$StatesMachine.increment_state(-1)
+	fade_transition()

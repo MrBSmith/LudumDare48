@@ -12,6 +12,12 @@ func get_class() -> String: return "LevelVariationState"
 
 #### BUILT-IN ####
 
+func enter_state() -> void:
+	var interactives = owner.get_interactives()
+	
+	for obj in interactives:
+		var str_path = str(obj.get_path()).replacen("/root/Level/", "")
+		obj.set_hidden(str_path in hidden_obj_array)
 
 
 #### VIRTUALS ####

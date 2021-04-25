@@ -129,6 +129,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Autoload/EventBase.gd"
 }, {
+"base": "CanvasLayer",
+"class": "FadeTransition",
+"language": "GDScript",
+"path": "res://scenes/Level/FadeTransition.gd"
+}, {
 "base": "ActorStateBase",
 "class": "Fall",
 "language": "GDScript",
@@ -559,6 +564,7 @@ _global_script_class_icons={
 "DirNavHelper": "",
 "Disappear": "",
 "EventsBase": "",
+"FadeTransition": "",
 "Fall": "",
 "GameLoader": "",
 "GameSaver": "",
