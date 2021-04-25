@@ -14,7 +14,9 @@ func _ready():
 
 #### VIRTUALS ####
 
-
+func interact() -> void:
+	if $StatesMachine.get_state_name() == "Idle" && is_interactable():
+		EVENTS.emit_signal("try_opening", self)
 
 #### LOGIC ####
 
@@ -24,9 +26,6 @@ func _on_open(obstacle: ObstacleObj):
 
 #### INPUTS ####
 
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("action") && player_in_area && $StatesMachine.get_state_name() == "Idle":
-		EVENTS.emit_signal("try_opening", self)
 
 #### SIGNAL RESPONSES ####
 

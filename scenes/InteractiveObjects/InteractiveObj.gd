@@ -3,8 +3,10 @@ extends Node2D
 class_name InteractiveObj
 
 onready var area = get_node("Area2D")
+
 var player_in_area = false
 export var hidden = false setget set_hidden, is_hidden
+export var spectral = false setget set_spectral, is_spectral
 
 #### ACCESSORS ####
 
@@ -24,6 +26,18 @@ func set_hidden(value: bool) -> void:
 func is_hidden() -> bool:
 	return hidden
 
+func is_spectral() -> bool:
+	return spectral
+	
+func set_spectral(value: bool) -> void:
+	spectral = value
+	$Light2D.set_enabled(spectral)
+	
+	if spectral:
+		set_modulate(Color(1, 1, 1, 0.6))
+	else:
+		set_modulate(Color.white)
+
 #### BUILT-IN ####
 
 func _ready() -> void:
@@ -33,14 +47,19 @@ func _ready() -> void:
 
 #### VIRTUALS ####
 
-
+func interact() -> void:
+	pass
 
 #### LOGIC ####
 
+func is_interactable() -> bool:
+	return is_hidden() == is_spectral()
 
 #### INPUTS ####
 
-
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("action") && player_in_area:
+		interact()
 
 #### SIGNAL RESPONSES ####
 
