@@ -36,5 +36,7 @@ func _on_collect(item: Item) -> void:
 func _on_try_opening(obstable: ObstacleObj) -> void:
 	match obstable.get_class():
 		"Chest":
-			if item_container.has_item("Key"):
+			var item : Item = item_container.get_item("Key")
+			if item != null:
+				item.destroy()
 				EVENTS.emit_signal("open", obstable)

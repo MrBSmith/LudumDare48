@@ -19,6 +19,9 @@ func get_class() -> String: return 'Item'
 
 #### LOGIC ####
 
+func destroy() -> void:
+	queue_free()
+
 #### INPUTS ####
 
 func _unhandled_input(_event: InputEvent) -> void:
