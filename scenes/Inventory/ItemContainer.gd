@@ -2,8 +2,7 @@ extends Control
 
 const CLASS_NAME = 'ItemContainer'
 
-const ITEM_SIZE = Vector2(64, 64)
-const MARGIN = Vector2(4, 4)
+onready var slot_x = rect_size.x / 3
 
 #### ACCESSORS ####
 
@@ -20,9 +19,8 @@ func get_class() -> String: return CLASS_NAME
 #### LOGIC ####
 
 func add_item(item: Item) -> void:
-	var half_item_x = ITEM_SIZE.x / 2
+	item.position.x = (slot_x * count_items()) + (slot_x / 2)
 	item.position.y = rect_size.y / 2
-	item.position.x = (count_items() * ITEM_SIZE.x) + half_item_x + (MARGIN.x * (count_items() + 1))
 	add_child(item)
 
 func count_items() -> int:
