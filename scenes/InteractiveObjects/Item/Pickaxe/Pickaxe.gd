@@ -1,3 +1,4 @@
+tool
 extends InteractiveObj
 class_name Pickaxe
 

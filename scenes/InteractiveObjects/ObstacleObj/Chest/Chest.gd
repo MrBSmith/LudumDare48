@@ -1,3 +1,4 @@
+tool
 extends ObstacleObj
 class_name Chest
 
