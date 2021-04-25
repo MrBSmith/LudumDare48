@@ -422,11 +422,13 @@ z_index = 1
 
 [node name="Chest" parent="." instance=ExtResource( 5 )]
 modulate = Color( 1, 1, 1, 0.6 )
-position = Vector2( 265.087, 145.017 )
+position = Vector2( 263.827, 144.683 )
+hidden = true
 spectral = true
+tresure_name = "Key"
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
-position = Vector2( 182.54, 134.485 )
+position = Vector2( 181.91, 134.8 )
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.6 )
