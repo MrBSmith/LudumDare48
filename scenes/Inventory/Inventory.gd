@@ -70,11 +70,12 @@ func _unhandled_input(_event: InputEvent) -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_collect(item: Item) -> void:
-	var newItem: Item = item.duplicate() if item.is_inside_tree() else item
-	newItem.set_position(Vector2.ZERO)
-	newItem.set_hidden(false)
-	newItem.set_spectral(false)
-	item_container.add_item(newItem)
+	var new_item: Item = item.duplicate() if item.is_inside_tree() else item
+	new_item.set_position(Vector2.ZERO)
+	new_item.set_hidden(false)
+	new_item.set_spectral(false)
+	new_item.set_collected(true)
+	item_container.add_item(new_item)
 
 
 func _on_try_interact(obstable: ObstacleObj) -> void:

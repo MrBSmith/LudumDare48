@@ -3,7 +3,7 @@ class_name Player
 
 const CLASS_NAME = 'Player'
 const SPEED = 300
-const JUMP_SPEED = 400
+const JUMP_SPEED = 450
 const GRAVITY = 20
 const MAX_FALL_SPEED = 400
 

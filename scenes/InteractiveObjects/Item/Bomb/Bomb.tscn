@@ -5,9 +5,13 @@
 [ext_resource path="res://scenes/InteractiveObjects/Item/Bomb/Bomb.gd" type="Script" id=3]
 
 [node name="Bomb" instance=ExtResource( 2 )]
+position = Vector2( 0, -2.68209 )
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 0, 32, 32 )
+
+[node name="PulsingLight" parent="." index="4"]
+scale = Vector2( 0.189017, 0.189017 )

@@ -5,6 +5,7 @@ class_name InteractiveObj
 onready var area = get_node("Area2D")
 
 var player_in_area = false
+
 export var hidden = false setget set_hidden, is_hidden
 export var spectral = false setget set_spectral, is_spectral
 
@@ -55,6 +56,8 @@ func destroy() -> void:
 
 #### LOGIC ####
 
+
+
 func is_interactable() -> bool:
 	return is_hidden() == is_spectral()
 
@@ -76,3 +79,5 @@ func _on_body_exited(body: Node) -> void:
 	if body.is_class("Player"):
 		player_in_area = false
 		EVENTS.emit_signal("recede_interactable", self)
+
+

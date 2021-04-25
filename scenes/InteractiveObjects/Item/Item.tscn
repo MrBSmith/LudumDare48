@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/InteractiveObjects/InteractiveObj.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BabaGodotLib/Feedback/PulsingLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/InteractiveObjects/Item/Item.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0
 
 [node name="Item" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
+
+[node name="Tween" type="Tween" parent="." index="3"]
+
+[node name="PulsingLight" parent="." index="4" instance=ExtResource( 2 )]
+scale = Vector2( 0.00290109, 0.00290109 )
+light_color = Color( 0.945098, 1, 0, 0.211765 )
+pulsing = true
