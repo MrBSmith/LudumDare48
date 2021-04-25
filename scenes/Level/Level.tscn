@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenes/Level/FadeTransition.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Level/Tileset.png" type="Texture" id=2]
@@ -422,6 +422,8 @@ z_index = 1
 
 [node name="Chest" parent="." instance=ExtResource( 5 )]
 position = Vector2( 264.808, 143.329 )
+hidden = false
+spectral = false
 tresure_name = "Pickaxe"
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
@@ -429,8 +431,8 @@ position = Vector2( 181.596, 134.446 )
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.6 )
-spectral = true
 position = Vector2( 144, 40 )
+spectral = true
 
 [node name="Exit" parent="." instance=ExtResource( 8 )]
 position = Vector2( 48, 192 )
