@@ -7,6 +7,7 @@ const JUMP_SPEED = 400
 const GRAVITY = 20
 
 onready var state_machine = get_node("StatesMachine")
+onready var animated_sprite = $AnimatedSprite
 
 var horizontal_direction = 0
 var vertical_direction = 0
@@ -31,6 +32,7 @@ func set_state(state: String):
 func _ready() -> void:
 	var __ = EVENTS.connect("collect", self, "_on_collect")
 
+
 func _physics_process(_delta: float) -> void:
 	if !ignore_gravity:
 		velocity.y += GRAVITY
@@ -39,11 +41,6 @@ func _physics_process(_delta: float) -> void:
 
 	velocity = move_and_slide(velocity, Vector2.UP)
 
-	if is_on_floor():
-		if horizontal_direction != 0:
-			set_state("Move")
-		else:
-			set_state("Idle")
 
 #### VIRTUALS ####
 
@@ -53,12 +50,17 @@ func _physics_process(_delta: float) -> void:
 
 func jump():
 	velocity.y -= JUMP_SPEED
-	set_state("Fall")
+
 
 #### INPUTS ####
 
 func _unhandled_input(_event: InputEvent) -> void:
 	horizontal_direction = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+	
+	if horizontal_direction == -1:
+		animated_sprite.set_flip_h(true)
+	elif horizontal_direction == 1:
+		animated_sprite.set_flip_h(false)
 	
 	if Input.is_action_just_pressed("jump") && get_state().name in ["Idle", "Move"]:
 		set_state("Jump")

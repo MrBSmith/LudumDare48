@@ -18,7 +18,7 @@ func get_class() -> String: return CLASS_NAME
 
 func update_state(_delta: float):
 	if owner.is_on_floor():
-		return "Idle"
+		return "Land"
 
 #### LOGIC ####
 
