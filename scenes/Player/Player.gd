@@ -5,6 +5,7 @@ const CLASS_NAME = 'Player'
 const SPEED = 300
 const JUMP_SPEED = 400
 const GRAVITY = 20
+const MAX_FALL_SPEED = 400
 
 onready var state_machine = get_node("StatesMachine")
 onready var animated_sprite = $AnimatedSprite
@@ -36,6 +37,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if !ignore_gravity:
 		velocity.y += GRAVITY
+		velocity.y = clamp(velocity.y, -INF, MAX_FALL_SPEED)
 
 	velocity.x = horizontal_direction * SPEED
 

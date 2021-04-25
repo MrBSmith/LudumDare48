@@ -1,6 +1,9 @@
 extends Node2D
 class_name Level
 
+onready var transition_node = $Transition
+onready var states_machine = $StatesMachine
+
 #### ACCESSORS ####
 
 func is_class(value: String): return value == "Level" or .is_class(value)
@@ -28,13 +31,16 @@ func get_interactives() -> Array:
 
 
 func fade_transition():
-	$FadeTransition.fade()
+	transition_node.fade()
 
 
 func increment_variation(increment: int = 1):
 	fade_transition()
-	yield($FadeTransition, "transition_middle")
-	$StatesMachine.increment_state(increment)
+	yield(transition_node, "transition_middle")
+	states_machine.increment_state(increment)
+	yield(transition_node, "transition_finished")
+	$Player.set_global_position($EntryPoint.get_global_position())
+
 
 #### INPUTS ####
 
