@@ -31,6 +31,11 @@ func fade_transition():
 	$FadeTransition.fade()
 
 
+func increment_variation(increment: int = 1):
+	fade_transition()
+	yield($FadeTransition, "transition_middle")
+	$StatesMachine.increment_state(increment)
+
 #### INPUTS ####
 
 
@@ -38,9 +43,7 @@ func fade_transition():
 #### SIGNAL RESPONSES ####
 
 func _on_increment_level_variation():
-	$StatesMachine.increment_state()
-	fade_transition()
+	increment_variation(1)
 
 func _on_decrement_level_variation():
-	$StatesMachine.increment_state(-1)
-	fade_transition()
+	increment_variation(-1)
