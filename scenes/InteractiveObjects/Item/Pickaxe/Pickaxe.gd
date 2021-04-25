@@ -1,8 +1,7 @@
-tool
 extends Item
 class_name Pickaxe
 
-const CLASS_NAME = 'Pickaxe'
+const CLASS_NAME = "Pickaxe"
 
 #### ACCESSORS ####
 

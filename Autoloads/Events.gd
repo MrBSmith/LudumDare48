@@ -4,8 +4,8 @@ extends EventsBase
 
 #### OBJECTS USAGE ####
 
-signal try_opening(obstacle)
-signal open(obstacle)
+signal try_interact(obstacle)
+signal interaction_succeed(obstacle)
 
 signal increment_level_variation()
 signal decrement_level_variation()

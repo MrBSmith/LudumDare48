@@ -31,7 +31,7 @@ func is_hidden() -> bool: return hidden
 
 func _ready() -> void:
 	var __ = EVENTS.connect("collect", self, "_on_collect")
-	__ = EVENTS.connect("try_opening", self, "_on_try_opening")
+	__ = EVENTS.connect("try_interact", self, "_on_try_interact")
 	__ = EVENTS.connect("approch_interactable", self, "_on_approch_interactable")
 	__ = EVENTS.connect("recede_interactable", self, "_on_recede_interactable")
 	__ = tween.connect("tween_all_completed", self, "_on_tween_all_completed")
@@ -70,21 +70,26 @@ func _unhandled_input(_event: InputEvent) -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_collect(item: Item) -> void:
-	var newItem: Item = item.duplicate()
+	var newItem: Item = item.duplicate() if item.is_inside_tree() else item
 	newItem.set_position(Vector2.ZERO)
 	newItem.set_hidden(false)
 	newItem.set_spectral(false)
 	item_container.add_item(newItem)
 
 
-func _on_try_opening(obstable: ObstacleObj) -> void:
-	match obstable.get_class():
-		"Chest":
-			var item : Item = item_container.get_item("Key")
-			if item != null:
-				item.destroy()
-				yield(item, "tree_exited")
-				EVENTS.emit_signal("open", obstable)
+func _on_try_interact(obstable: ObstacleObj) -> void:
+	var needed_item : String = ""
+	var obstacle_type = obstable.get_class()
+	
+	match(obstacle_type):
+		"Chest": needed_item = "Key"
+		"Crumble": needed_item = "Pickaxe"
+	
+	var item : Item = item_container.get_item(needed_item)
+	if item != null:
+		item_container.remove_item(item)
+		yield(item, "tree_exited")
+		EVENTS.emit_signal("interaction_succeed", obstable)
 
 
 func _on_tween_all_completed():

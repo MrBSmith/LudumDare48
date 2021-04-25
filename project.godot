@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/CombatIsoMap.gd"
 }, {
+"base": "ObstacleObj",
+"class": "Crumble",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.gd"
+}, {
 "base": "ResizableWindow",
 "class": "DescriptionWindow",
 "language": "GDScript",
@@ -565,6 +570,7 @@ _global_script_class_icons={
 "Collectable_HUD_Label": "",
 "Collectable_IdleState": "",
 "CombatIsoMap": "",
+"Crumble": "",
 "DescriptionWindow": "",
 "DirNavHelper": "",
 "Disappear": "",

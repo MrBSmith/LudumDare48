@@ -50,6 +50,9 @@ func _ready() -> void:
 func interact() -> void:
 	pass
 
+func destroy() -> void:
+	call_deferred("queue_free")
+
 #### LOGIC ####
 
 func is_interactable() -> bool:

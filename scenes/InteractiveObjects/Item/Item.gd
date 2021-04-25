@@ -1,4 +1,3 @@
-tool
 extends InteractiveObj
 class_name Item
 
@@ -22,9 +21,6 @@ func interact() -> void:
 		queue_free()
 
 #### LOGIC ####
-
-func destroy() -> void:
-	queue_free()
 
 func _is_collectable() -> bool:
 	return !is_collected && is_interactable()

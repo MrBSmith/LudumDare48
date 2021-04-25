@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/Level/FadeTransition.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Level/Tileset.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://BabaGodotLib/Absract/StateMachine/StateLabel.gd" type="Script" id=11]
 [ext_resource path="res://scenes/Level/Variations/LevelVariationState.gd" type="Script" id=12]
 [ext_resource path="res://scenes/Level/EntryPoint/EntryPoint.gd" type="Script" id=13]
+[ext_resource path="res://BabaGodotLib/SFX/Debris/DebrisGenerator.gd" type="Script" id=14]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -359,12 +361,14 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="Level" type="Node2D"]
 script = ExtResource( 9 )
 
+[node name="DebrisGenerator" type="Node2D" parent="."]
+script = ExtResource( 14 )
+
 [node name="StatesMachine" type="Node2D" parent="."]
 script = ExtResource( 10 )
 
 [node name="Variation1" type="Node" parent="StatesMachine"]
 script = ExtResource( 12 )
-hidden_obj_array = [ "Key" ]
 
 [node name="Variation2" type="Node" parent="StatesMachine"]
 script = ExtResource( 12 )
@@ -408,6 +412,8 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="Transition"]
 
+[node name="Inventory" parent="." instance=ExtResource( 6 )]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 26 )
 cell_size = Vector2( 16, 16 )
@@ -418,12 +424,8 @@ tile_data = PoolIntArray( 65535, 1, 131073, 0, 1, 196609, 1, 1, 196609, 2, 3, 0,
 position = Vector2( 109.168, 140.826 )
 z_index = 1
 
-[node name="Inventory" parent="." instance=ExtResource( 6 )]
-
 [node name="Chest" parent="." instance=ExtResource( 5 )]
 position = Vector2( 264.808, 143.329 )
-hidden = false
-spectral = false
 tresure_name = "Pickaxe"
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
@@ -441,3 +443,6 @@ scale = Vector2( 1.496, 0.271 )
 [node name="EntryPoint" type="Position2D" parent="."]
 position = Vector2( 48, -8 )
 script = ExtResource( 13 )
+
+[node name="Crumble" parent="." instance=ExtResource( 15 )]
+position = Vector2( 48, 152 )
