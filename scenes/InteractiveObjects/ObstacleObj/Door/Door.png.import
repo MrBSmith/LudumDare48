@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-4cf8c1b2a2b5c87f013eafad509dce5a.stex"
+path="res://.import/Door.png-602662eaf43bc1fb540a65add8ba87c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/InteractiveObjects/Door/Door.png"
-dest_files=[ "res://.import/Door.png-4cf8c1b2a2b5c87f013eafad509dce5a.stex" ]
+source_file="res://scenes/InteractiveObjects/ObstacleObj/Door/Door.png"
+dest_files=[ "res://.import/Door.png-602662eaf43bc1fb540a65add8ba87c6.stex" ]
 
 [params]
 

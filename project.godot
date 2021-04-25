@@ -64,6 +64,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/AbstractStates/Appear.gd"
 }, {
+"base": "InteractiveObj",
+"class": "Bomb",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/item/Bomb/Bomb.gd"
+}, {
+"base": "ObstacleObj",
+"class": "Chest",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/Chest/Chest.gd"
+}, {
+"base": "ObstacleState",
+"class": "Closed",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/State/Closed.gd"
+}, {
 "base": "InteractiveObject",
 "class": "Collectable",
 "language": "GDScript",
@@ -229,6 +244,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/player/States/Jump.gd"
 }, {
+"base": "InteractiveObj",
+"class": "Key",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/item/Key/Key.gd"
+}, {
 "base": "ActorStateBase",
 "class": "Land",
 "language": "GDScript",
@@ -304,6 +324,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/LineContainer/DataContainer/NormalLineData.gd"
 }, {
+"base": "ObstacleState",
+"class": "ObstacleIdle",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/Idle.gd"
+}, {
+"base": "InteractiveObj",
+"class": "ObstacleObj",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/ObstacleObj.gd"
+}, {
+"base": "StateBase",
+"class": "ObstacleState",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/State/ObstacleState.gd"
+}, {
+"base": "ObstacleState",
+"class": "Opened",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/State/Opened.gd"
+}, {
 "base": "Node",
 "class": "OptionDataContainer",
 "language": "GDScript",
@@ -323,6 +363,11 @@ _global_script_classes=[ {
 "class": "PathPoint",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Actor/AI/ActorPath/PathPointBase.gd"
+}, {
+"base": "InteractiveObj",
+"class": "Pickaxe",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/item/Pickaxe/Pickaxe.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -481,6 +526,9 @@ _global_script_class_icons={
 "ActorPath": "",
 "ActorStateBase": "",
 "AppearState": "",
+"Bomb": "",
+"Chest": "",
+"Closed": "",
 "Collectable": "",
 "Collectable_CollectState": "",
 "Collectable_FollowState": "",
@@ -514,6 +562,7 @@ _global_script_class_icons={
 "IsoSprite": "",
 "Item": "",
 "Jump": "",
+"Key": "",
 "Land": "",
 "LevelLoader": "",
 "LevelNode": "",
@@ -529,10 +578,15 @@ _global_script_class_icons={
 "NestedPushdownAutomata": "",
 "NestedStatesMachine": "",
 "NormalLineData": "",
+"ObstacleIdle": "",
+"ObstacleObj": "",
+"ObstacleState": "",
+"Opened": "",
 "OptionDataContainer": "",
 "OptionLineContainer": "",
 "PartTween": "",
 "PathPoint": "",
+"Pickaxe": "",
 "Player": "",
 "PulsingLight": "",
 "PushdownAutomata": "",
@@ -567,7 +621,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludum Dare 48"
-run/main_scene="res://scenes/level/Level.tscn"
+run/main_scene="res://scenes/Level/Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
