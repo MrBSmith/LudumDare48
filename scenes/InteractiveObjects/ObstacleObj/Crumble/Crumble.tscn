@@ -36,6 +36,7 @@ script = ExtResource( 5 )
 script = ExtResource( 8 )
 
 [node name="StateLabel" type="Label" parent="StatesMachine"]
+visible = false
 margin_left = -17.8381
 margin_top = -33.2978
 margin_right = 22.1619
