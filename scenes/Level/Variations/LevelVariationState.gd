@@ -1,3 +1,4 @@
+tool
 extends StateBase
 class_name LevelVariationState
 

@@ -21,9 +21,9 @@ func get_class() -> String: return "Ladder"
 
 #### INPUTS ####
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("action") && player_in_area:
-		EVENTS.emit_signal("increment_level_variation")
+		EVENTS.emit_signal("decrement_level_variation")
 
 
 #### SIGNAL RESPONSES ####
