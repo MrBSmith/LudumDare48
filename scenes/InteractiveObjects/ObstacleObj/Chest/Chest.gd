@@ -39,12 +39,12 @@ func _on_interaction_succeed(obj: InteractiveObj):
 func _on_body_entered(body: Node) -> void:
 	if body.is_class("Player"):
 		player_in_area = true
-		if $StatesMachine.get_state_name() == "Idle":
+		if $StatesMachine.get_state_name() == "Idle" && !spectral:
 			EVENTS.emit_signal("approch_interactable", self)
 
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_class("Player"):
 		player_in_area = false
-		if $StatesMachine.get_state_name() == "Idle":
+		if $StatesMachine.get_state_name() == "Idle" && !spectral:
 			EVENTS.emit_signal("recede_interactable", self)

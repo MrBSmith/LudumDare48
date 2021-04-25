@@ -88,7 +88,7 @@ func _on_try_interact(obstable: ObstacleObj) -> void:
 	
 	var item : Item = item_container.get_item(needed_item)
 	if item != null:
-		item_container.remove_item(item)
+		item.destroy()
 		yield(item, "tree_exited")
 		EVENTS.emit_signal("interaction_succeed", obstable)
 

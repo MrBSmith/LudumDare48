@@ -20,12 +20,11 @@ func interact() -> void:
 
 #### LOGIC ####
 
-func _on_interaction_succeed(obj: InteractiveObj):
-	if obj == self:
-		$StatesMachine.set_state("Opened")
-
 #### INPUTS ####
 
 
 #### SIGNAL RESPONSES ####
 
+func _on_interaction_succeed(obj: InteractiveObj):
+	if obj == self:
+		$StatesMachine.set_state("Opened")

@@ -13,5 +13,8 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 0, 32, 32 )
 
+[node name="Light2D" parent="." index="2"]
+color = Color( 0, 1, 1, 0.709804 )
+
 [node name="PulsingLight" parent="." index="4"]
 scale = Vector2( 0.189017, 0.189017 )

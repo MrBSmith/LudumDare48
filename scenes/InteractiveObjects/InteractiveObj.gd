@@ -35,7 +35,7 @@ func set_spectral(value: bool) -> void:
 	$Light2D.set_enabled(spectral)
 	
 	if spectral:
-		set_modulate(Color(1, 1, 1, 0.6))
+		set_modulate(Color(1, 1, 1, 0.2))
 	else:
 		set_modulate(Color.white)
 
@@ -51,8 +51,10 @@ func _ready() -> void:
 func interact() -> void:
 	pass
 
-func destroy() -> void:
-	call_deferred("queue_free")
+
+func destroy():
+	EVENTS.emit_signal("scatter_object", self, 30.0)
+	queue_free()
 
 #### LOGIC ####
 
@@ -72,12 +74,12 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_class("Player"):
 		player_in_area = true
-		EVENTS.emit_signal("approch_interactable", self)
+		if !spectral:
+			EVENTS.emit_signal("approch_interactable", self)
 
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_class("Player"):
 		player_in_area = false
-		EVENTS.emit_signal("recede_interactable", self)
-
-
+		if !spectral:
+			EVENTS.emit_signal("recede_interactable", self)

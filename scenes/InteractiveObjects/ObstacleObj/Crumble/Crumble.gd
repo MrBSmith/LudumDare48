@@ -1,3 +1,4 @@
+tool
 extends ObstacleObj
 class_name Crumble
 
@@ -20,10 +21,6 @@ func interact() -> void:
 
 #### LOGIC ####
 
-
-func destroy():
-	EVENTS.emit_signal("scatter_object", self, 100.0)
-	queue_free()
 
 
 #### INPUTS ####

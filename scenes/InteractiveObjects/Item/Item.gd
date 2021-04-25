@@ -37,6 +37,9 @@ func _ready() -> void:
 	if !is_collected() && !Engine.editor_hint:
 		_start_waving(vawing_up)
 	
+	if spectral:
+		$PulsingLight.set_visible(false)
+	
 	is_ready = true
 
 

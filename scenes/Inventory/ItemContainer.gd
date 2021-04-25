@@ -24,10 +24,6 @@ func add_item(item: Item) -> void:
 	item.owner = owner
 
 
-func remove_item(item: Item) -> void:
-	if item in get_items():
-		item.destroy()
-
 func count_items() -> int:
 	var count = 0
 	for child in get_children():
