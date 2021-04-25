@@ -389,7 +389,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Actor/AI/ActorPath/PathPointBase.gd"
 }, {
-"base": "InteractiveObj",
+"base": "Item",
 "class": "Pickaxe",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/Item/Pickaxe/Pickaxe.gd"
