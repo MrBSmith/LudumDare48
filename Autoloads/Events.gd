@@ -12,3 +12,4 @@ signal decrement_level_variation()
 signal go_to_level_variation(variation_id)
 
 signal approch_interactable(obj)
+signal recede_interactable(obj)

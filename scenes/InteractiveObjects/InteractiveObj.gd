@@ -66,8 +66,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_class("Player"):
 		player_in_area = true
+		EVENTS.emit_signal("approch_interactable", self)
 
-	
+
 func _on_body_exited(body: Node) -> void:
 	if body.is_class("Player"):
 		player_in_area = false
+		EVENTS.emit_signal("recede_interactable", self)

@@ -5,6 +5,7 @@ const CLASS_NAME = 'Inventory'
 
 onready var item_container = get_node("ItemContainer")
 onready var tween = $Tween
+onready var timer = $Timer
 
 onready var hidden_pos = item_container.get_position()
 onready var visible_pos = hidden_pos + Vector2(0, get_node("ItemContainer/TextureRect").get_size().y)
@@ -31,7 +32,11 @@ func is_hidden() -> bool: return hidden
 func _ready() -> void:
 	var __ = EVENTS.connect("collect", self, "_on_collect")
 	__ = EVENTS.connect("try_opening", self, "_on_try_opening")
-	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
+	__ = EVENTS.connect("approch_interactable", self, "_on_approch_interactable")
+	__ = EVENTS.connect("recede_interactable", self, "_on_recede_interactable")
+	__ = tween.connect("tween_all_completed", self, "_on_tween_all_completed")
+	__ = timer.connect("timeout", self, "_on_timer_timeout")
+	
 
 
 #### VIRTUALS ####
@@ -81,5 +86,16 @@ func _on_try_opening(obstable: ObstacleObj) -> void:
 				yield(item, "tree_exited")
 				EVENTS.emit_signal("open", obstable)
 
+
 func _on_tween_all_completed():
 	transitioning = false
+
+func _on_approch_interactable(_obj: InteractiveObj):
+	set_hidden(false)
+
+func _on_recede_interactable(_obj: InteractiveObj):
+	timer.start()
+
+func _on_timer_timeout():
+	if !is_hidden():
+		set_hidden(true)
