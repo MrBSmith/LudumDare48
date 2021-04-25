@@ -1,5 +1,5 @@
 tool
-extends InteractiveObj
+extends Item
 class_name Pickaxe
 
 const CLASS_NAME = 'Pickaxe'

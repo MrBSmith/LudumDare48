@@ -40,4 +40,5 @@ func _on_try_opening(obstable: ObstacleObj) -> void:
 			var item : Item = item_container.get_item("Key")
 			if item != null:
 				item.destroy()
+				yield(item, "tree_exited")
 				EVENTS.emit_signal("open", obstable)

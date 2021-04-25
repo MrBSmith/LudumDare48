@@ -421,12 +421,11 @@ z_index = 1
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
 
 [node name="Chest" parent="." instance=ExtResource( 5 )]
-modulate = Color( 1, 1, 1, 0.6 )
-position = Vector2( 265.087, 145.017 )
-spectral = true
+position = Vector2( 264.808, 143.329 )
+tresure_name = "Pickaxe"
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
-position = Vector2( 182.54, 134.485 )
+position = Vector2( 181.596, 134.446 )
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.6 )
