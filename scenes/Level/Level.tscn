@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/Level/Tileset.png" type="Texture" id=2]
 [ext_resource path="res://scenes/InteractiveObjects/Item/Bomb/Bomb.tscn" type="PackedScene" id=3]
@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Chest/Chest.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Inventory/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/InteractiveObjects/Item/Key/Key.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/InteractiveObjects/Ladder/Ladder.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Level/Level.gd" type="Script" id=9]
 [ext_resource path="res://BabaGodotLib/Absract/StateMachine/ToolStateMachine.gd" type="Script" id=10]
 [ext_resource path="res://BabaGodotLib/Absract/StateMachine/StateLabel.gd" type="Script" id=11]
@@ -340,16 +339,20 @@ format = 1
 tile_data = PoolIntArray( 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589830, 0, 1, 589831, 0, 1, 589832, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 1, 589840, 0, 1, 589841, 0, 1, 589842, 0, 1, 589843, 0, 1, 655360, 0, 65537, 655361, 0, 65537, 655362, 0, 65537, 655363, 0, 65537, 655364, 0, 65537, 655365, 0, 65537, 655366, 0, 65537, 655367, 0, 65537, 655368, 0, 65537, 655369, 0, 65537, 655370, 0, 65537, 655371, 0, 65537, 655372, 0, 65537, 655373, 0, 65537, 655374, 0, 65537, 655375, 0, 65537, 655376, 0, 65537, 655377, 0, 65537, 655378, 0, 65537, 655379, 0, 65537, 720896, 0, 131073, 720897, 0, 131073, 720898, 0, 131073, 720899, 0, 131073, 720900, 0, 131073, 720901, 0, 131073, 720902, 0, 131073, 720903, 0, 131073, 720904, 0, 131073, 720905, 0, 131073, 720906, 0, 131073, 720907, 0, 131073, 720908, 0, 131073, 720909, 0, 131073, 720910, 0, 131073, 720911, 0, 131073, 720912, 0, 131073, 720913, 0, 131073, 720914, 0, 131073, 720915, 0, 131073 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 109.483, 140.826 )
+position = Vector2( 109.168, 140.826 )
 z_index = 1
 
 [node name="Inventory" parent="." instance=ExtResource( 6 )]
 
 [node name="Chest" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 0.6 )
 position = Vector2( 265.087, 145.017 )
+spectral = true
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
 position = Vector2( 182.54, 134.485 )
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
-position = Vector2( 67.0758, 134.485 )
+modulate = Color( 1, 1, 1, 0.6 )
+position = Vector2( 67.9167, 134.485 )
+spectral = true
