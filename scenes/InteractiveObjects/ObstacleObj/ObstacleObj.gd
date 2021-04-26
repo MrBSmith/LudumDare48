@@ -11,6 +11,7 @@ func get_class() -> String: return 'ObstacleObj'
 
 func _ready():
 	var __ = EVENTS.connect("interaction_succeed", self, "_on_interaction_succeed")
+	__ = $StatesMachine.connect("state_changed", self, "_on_state_changed")
 
 #### VIRTUALS ####
 
@@ -25,6 +26,10 @@ func interact() -> void:
 
 #### SIGNAL RESPONSES ####
 
-func _on_interaction_succeed(obj: InteractiveObj):
+func _on_interaction_succeed(obj: InteractiveObj) -> void:
 	if obj == self:
 		$StatesMachine.set_state("Opening")
+
+func _on_state_changed(state_name: String) -> void:
+	if state_name == "Opened":
+		EVENTS.emit_signal("recede_interactable", self)
