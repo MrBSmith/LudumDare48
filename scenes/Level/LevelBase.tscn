@@ -384,12 +384,9 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="Transition"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = -0.37458
-margin_right = 1.0
-margin_bottom = -0.374573
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
