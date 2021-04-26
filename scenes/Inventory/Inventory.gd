@@ -36,11 +36,9 @@ func _ready() -> void:
 	__ = EVENTS.connect("recede_interactable", self, "_on_recede_interactable")
 	__ = tween.connect("tween_all_completed", self, "_on_tween_all_completed")
 	__ = timer.connect("timeout", self, "_on_timer_timeout")
-	
 
 
 #### VIRTUALS ####
-
 
 
 
@@ -90,6 +88,7 @@ func _on_try_interact(obstable: ObstacleObj) -> void:
 	if item != null:
 		item.destroy()
 		yield(item, "tree_exited")
+		item_container.refresh_items_display()
 		EVENTS.emit_signal("interaction_succeed", obstable)
 
 

@@ -432,8 +432,7 @@ position = Vector2( 264.808, 143.329 )
 tresure_name = "Pickaxe"
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
-position = Vector2( 144, 61.2054 )
-spectral = true
+position = Vector2( 115.491, 128.859 )
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
 position = Vector2( 184, 136 )
