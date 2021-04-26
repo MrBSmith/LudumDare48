@@ -75,7 +75,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			set_state("Jump")
 		
 		elif get_state_name() == "Fall":
-			if jump_fall_tolorence:
+			if jump_fall_tolorence && $StatesMachine.previous_state.name in ["Idle", "Move"]:
 				set_state("Jump")
 			else:
 				jump_buffered = true
