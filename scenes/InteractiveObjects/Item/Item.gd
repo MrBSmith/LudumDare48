@@ -8,7 +8,6 @@ const GLOW_DOWN_TIME = 0.2
 onready var tween = $Tween
 onready var initial_position = get_position()
 
-var is_ready = false
 var vawing_up : bool = bool(Math.randi_range(0, 1))
 
 export var vawing_offset := Vector2(0, 3)
