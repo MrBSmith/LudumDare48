@@ -25,7 +25,7 @@ func get_class() -> String: return 'Item'
 func set_collected(value: bool):
 	if !is_ready:
 		yield(self, "ready")
-	
+
 	collected = value
 	if collected:
 		tween.remove_all()
@@ -42,10 +42,10 @@ func _ready() -> void:
 
 	if !is_collected() && !Engine.editor_hint:
 		_start_waving(vawing_up)
-	
+
 	if spectral:
 		$PulsingLight.set_visible(false)
-	
+
 	is_ready = true
 
 
@@ -65,11 +65,12 @@ func _is_collectable() -> bool:
 
 func _start_waving(up: bool = true):
 	var vawing_sign = 1 if up else -1
-	
-	tween.interpolate_property(self, "position", get_position(), 
+
+	tween.interpolate_property(self, "position", get_position(),
 		initial_position + (vawing_offset * vawing_sign),
 		1.0, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
+
 
 func glow_up() -> void:
 	var init_scale = get_scale()
@@ -82,6 +83,12 @@ func glow_up() -> void:
 	tween.start()
 	yield(tween, "tween_all_completed")
 	emit_signal("glow_up_finished", self)
+
+
+func destroy():
+	EVENTS.emit_signal("play_sound_effect", $UseSound)
+	queue_free()
+
 
 #### INPUTS ####
 
