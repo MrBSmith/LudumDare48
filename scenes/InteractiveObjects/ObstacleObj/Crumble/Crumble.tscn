@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://BabaGodotLib/Absract/StateMachine/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://BabaGodotLib/Light/Light300.png" type="Texture" id=6]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/State/Idle.gd" type="Script" id=7]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/State/Opened.gd" type="Script" id=8]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/BreakSound.wav" type="AudioStream" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0
@@ -60,3 +61,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.787445, 3.30729 )
 shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+pitch_scale = 0.84

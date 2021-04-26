@@ -31,6 +31,7 @@ func set_collected(value: bool):
 		tween.remove_all()
 		set_position(initial_position)
 		$PulsingLight.set_visible(false)
+		$CollectSound.play()
 
 func is_collected() -> bool: return collected
 
