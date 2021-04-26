@@ -455,6 +455,7 @@ position = Vector2( 48, -8 )
 script = ExtResource( 13 )
 
 [node name="Crumble" parent="." instance=ExtResource( 15 )]
+visible = false
 position = Vector2( 48, 152 )
 
 [node name="Door" parent="." instance=ExtResource( 16 )]
