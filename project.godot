@@ -109,7 +109,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/CombatIsoMap.gd"
 }, {
-"base": "DestructableObj",
+"base": "ObstacleObj",
 "class": "Crumble",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.gd"
@@ -717,19 +717,18 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludum Dare 48"
-run/main_scene="res://scenes/Menu/ScreenTitle/ScreenTitle.tscn"
+run/main_scene="res://scenes/Level/Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 EVENTS="*res://Autoloads/Events.gd"
-GAME="*res://Autoloads/Game.gd"
 
 [display]
 
 window/size/width=320
 window/size/height=180
-window/size/test_width=1280
+window/size/test_width=1080
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
