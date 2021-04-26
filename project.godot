@@ -109,7 +109,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/CombatIsoMap.gd"
 }, {
-"base": "ObstacleObj",
+"base": "DestructableObj",
 "class": "Crumble",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.gd"
@@ -419,6 +419,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoRenderer/RenderPart/PartTween.gd"
 }, {
+"base": "Node2D",
+"class": "ParticuleGenerator",
+"language": "GDScript",
+"path": "res://scenes/Level/ParticuleGenerator.gd"
+}, {
 "base": "Position2D",
 "class": "PathPoint",
 "language": "GDScript",
@@ -503,6 +508,11 @@ _global_script_classes=[ {
 "class": "SoundEffectsHandler",
 "language": "GDScript",
 "path": "res://scenes/Level/SoundEffectsHandler.gd"
+}, {
+"base": "Particles2D",
+"class": "SpectralParticule",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/SpectalParticule.gd"
 }, {
 "base": "Node",
 "class": "StateBase",
@@ -677,6 +687,7 @@ _global_script_class_icons={
 "OptionDataContainer": "",
 "OptionLineContainer": "",
 "PartTween": "",
+"ParticuleGenerator": "",
 "PathPoint": "",
 "Pickaxe": "",
 "Player": "",
@@ -694,6 +705,7 @@ _global_script_class_icons={
 "SceneFinder": "",
 "ScreenTitle": "",
 "SoundEffectsHandler": "",
+"SpectralParticule": "",
 "StateBase": "",
 "StateLabel": "",
 "StatesMachine": "",

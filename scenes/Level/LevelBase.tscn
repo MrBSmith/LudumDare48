@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/Level/FadeTransition.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Level/Tileset.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Level/ParticuleGenerator.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Inventory/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Level/Exit/Exit.tscn" type="PackedScene" id=8]
@@ -361,6 +362,9 @@ script = ExtResource( 17 )
 
 [node name="DebrisGenerator" type="Node2D" parent="."]
 script = ExtResource( 14 )
+
+[node name="ParticuleGenerator" type="Node2D" parent="."]
+script = ExtResource( 3 )
 
 [node name="StatesMachine" type="Node2D" parent="."]
 script = ExtResource( 10 )
