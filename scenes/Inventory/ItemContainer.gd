@@ -19,8 +19,9 @@ func get_class() -> String: return CLASS_NAME
 
 func add_item(item: Item) -> void:
 	_set_item_position(item, count_items())
-	add_child(item)
-	item.owner = owner
+	call_deferred("add_child", item)
+	if !item.is_ready:
+		yield(item, "ready")
 
 func count_items() -> int:
 	var count = 0
@@ -41,7 +42,7 @@ func get_items() -> Array:
 		if child is Item:
 			items_array.append(child)
 	return items_array
-	
+
 func refresh_items_display() -> void:
 	var items = get_items();
 	for key in range(items.size()):

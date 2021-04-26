@@ -22,7 +22,6 @@ func interact() -> void:
 #### LOGIC ####
 
 
-
 #### INPUTS ####
 
 
@@ -31,4 +30,5 @@ func interact() -> void:
 
 func _on_interaction_succeed(obj: InteractiveObj):
 	if obj == self:
+		EVENTS.emit_signal("play_sound_effect", $AudioStreamPlayer)
 		destroy()
