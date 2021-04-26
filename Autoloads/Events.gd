@@ -6,6 +6,7 @@ extends EventsBase
 
 signal try_interact(obstacle)
 signal interaction_succeed(obstacle)
+signal interaction_failed(obstacle)
 
 signal increment_level_variation()
 signal decrement_level_variation()

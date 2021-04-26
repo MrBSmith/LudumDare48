@@ -85,12 +85,13 @@ func _on_try_interact(obstable: ObstacleObj) -> void:
 		"Crumble": needed_item = "Pickaxe"
 	
 	var item : Item = item_container.get_item(needed_item)
-	if item != null:
+	if item != null: # interaction succeed
 		item.destroy()
 		yield(item, "tree_exited")
 		item_container.refresh_items_display()
 		EVENTS.emit_signal("interaction_succeed", obstable)
-
+	else:	
+		EVENTS.emit_signal("interaction_failed", obstable)
 
 func _on_tween_all_completed():
 	transitioning = false
