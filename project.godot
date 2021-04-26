@@ -717,12 +717,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludum Dare 48"
-run/main_scene="res://scenes/Level/Level.tscn"
+run/main_scene="res://scenes/Menu/ScreenTitle/ScreenTitle.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 EVENTS="*res://Autoloads/Events.gd"
+GAME="*res://Autoloads/Game.gd"
 
 [display]
 
