@@ -5,14 +5,13 @@ const CLASS_NAME = 'Inventory'
 
 onready var item_container = get_node("ItemContainer")
 onready var tween = $Tween
-onready var timer = $Timer
 
 onready var hidden_pos = item_container.get_position()
 onready var visible_pos = hidden_pos + Vector2(0, get_node("ItemContainer/TextureRect").get_size().y)
 
 var hidden : bool = true setget set_hidden, is_hidden
 var transitioning : bool = false
-
+var last_interactive_obj_encountered : InteractiveObj = null
 
 #### ACCESSORS ####
 
@@ -35,7 +34,6 @@ func _ready() -> void:
 	__ = EVENTS.connect("approch_interactable", self, "_on_approch_interactable")
 	__ = EVENTS.connect("recede_interactable", self, "_on_recede_interactable")
 	__ = tween.connect("tween_all_completed", self, "_on_tween_all_completed")
-	__ = timer.connect("timeout", self, "_on_timer_timeout")
 
 
 #### VIRTUALS ####
@@ -96,12 +94,10 @@ func _on_try_interact(obstable: ObstacleObj) -> void:
 func _on_tween_all_completed():
 	transitioning = false
 
-func _on_approch_interactable(_obj: InteractiveObj):
+func _on_approch_interactable(obj: InteractiveObj):
+	last_interactive_obj_encountered = obj
 	set_hidden(false)
 
-func _on_recede_interactable(_obj: InteractiveObj):
-	timer.start()
-
-func _on_timer_timeout():
-	if !is_hidden():
+func _on_recede_interactable(obj: InteractiveObj):
+	if obj == last_interactive_obj_encountered:
 		set_hidden(true)
