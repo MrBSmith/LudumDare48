@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://BabaGodotLib/Fonts/BoldCapsPixel24.tres" type="DynamicFont" id=1]
+[ext_resource path="res://BabaGodotLib/UI/Menu/OptionButtons/MenuOptionBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://BabaGodotLib/UI/Menu/MenuBase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Menu/ScreenTitle/ScreenTitle.gd" type="Script" id=4]
+
+[node name="ScreenTitle" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+
+[node name="HBoxContainer" parent="." index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.26
+margin_top = 4.648
+margin_right = 29.26
+margin_bottom = 76.6479
+
+[node name="V_OptContainer" parent="HBoxContainer" index="0"]
+margin_left = 6.0
+margin_right = 51.0
+margin_bottom = 71.0
+
+[node name="Play" parent="HBoxContainer/V_OptContainer" index="0" instance=ExtResource( 2 )]
+margin_right = 45.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "Play"
+
+[node name="Controls" parent="HBoxContainer/V_OptContainer" index="1" instance=ExtResource( 2 )]
+margin_top = 23.0
+margin_right = 45.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 1 )
+text = "Controls"
+
+[node name="OptionChoiceSound" parent="." index="1"]
+bus = "Master"

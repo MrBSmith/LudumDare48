@@ -184,6 +184,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Player/States/Idle.gd"
 }, {
+"base": "Node",
+"class": "InputMapper",
+"language": "GDScript",
+"path": "res://scenes/Menu/Controls/input_mapper/InputMapper.gd"
+}, {
+"base": "Control",
+"class": "InputMenu",
+"language": "GDScript",
+"path": "res://scenes/Menu/Controls/InputMenu.gd"
+}, {
 "base": "Node2D",
 "class": "InteractiveObj",
 "language": "GDScript",
@@ -479,6 +489,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/SceneFinder/SceneFinder.gd"
 }, {
+"base": "MenuBase",
+"class": "ScreenTitle",
+"language": "GDScript",
+"path": "res://scenes/Menu/ScreenTitle/ScreenTitle.gd"
+}, {
 "base": "Node",
 "class": "StateBase",
 "language": "GDScript",
@@ -600,6 +615,8 @@ _global_script_class_icons={
 "IconsLineContainer": "",
 "IconsLineData": "",
 "Idle": "",
+"InputMapper": "",
+"InputMenu": "",
 "InteractiveObj": "",
 "InteractiveObject": "",
 "Inventory": "",
@@ -659,6 +676,7 @@ _global_script_class_icons={
 "ResizableWindow": "",
 "SFX_AnimationBase": "",
 "SceneFinder": "",
+"ScreenTitle": "",
 "StateBase": "",
 "StateLabel": "",
 "StatesMachine": "",
@@ -687,6 +705,7 @@ config/icon="res://icon.png"
 [autoload]
 
 EVENTS="*res://Autoloads/Events.gd"
+GAME="*res://Autoloads/Game.gd"
 
 [display]
 
