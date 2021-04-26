@@ -1,4 +1,4 @@
-extends Control
+extends MenuBase
 class_name InputMenu
 
 #Get the ActionList node, which is type VBoxContainer. It will contains all the input information
@@ -29,8 +29,7 @@ func rebuild(input_profile, is_customizable = false):
 #If the player press the ui_cancel button (ref to the project settings, might me ESCAPE) it will queue free the menu and back to the game
 func _input(event):
 	if event.is_action_pressed('ui_cancel'):
-		queue_free()
-		get_tree().paused = false
+		navigate_sub_menu(GAME.generate_menu("ScreenTitle"))
 
 
 #### SIGNAL RESPONSE ####
