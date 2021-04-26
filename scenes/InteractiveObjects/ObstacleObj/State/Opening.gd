@@ -14,7 +14,11 @@ func get_class() -> String: return CLASS_NAME
 
 #### VIRTUALS ####
 
-
+func enter_state():
+	.enter_state()
+	if animated_sprite == null:
+#		states_machine.increment_state()
+		states_machine.set_state("Opened")
 
 #### LOGIC ####
 

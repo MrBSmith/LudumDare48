@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/ObstacleObj.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.gd" type="Script" id=2]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.png" type="Texture" id=3]
 [ext_resource path="res://BabaGodotLib/Absract/StateMachine/StateLabel.gd" type="Script" id=4]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/State/Opening.gd" type="Script" id=5]
@@ -12,17 +13,26 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=2]
+radius = 30.0
+
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.6152, 10.2718 )
 
 [node name="Crumble" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-position = Vector2( -0.787445, 3.30729 )
+[node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 pitch_scale = 0.84
-[node name="Sprite" type="Sprite" parent="." index="4"]
+[node name="Sprite" type="Sprite" parent="." index="3"]
 texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2( -0.787445, 3.30729 )
+shape = SubResource( 1 )

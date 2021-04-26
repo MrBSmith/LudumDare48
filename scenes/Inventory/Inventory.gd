@@ -4,8 +4,7 @@ class_name Inventory
 const CLASS_NAME = 'Inventory'
 const SHOW_TRANSITION_TIME = 0.6
 
-const HIDE_DELAY_SMALL = 0.4
-const HIDE_DELAY_LONG = 0.6
+const HIDE_DELAY = 0.4
 
 onready var item_container = get_node("ItemContainer")
 onready var tween = $Tween
@@ -80,7 +79,7 @@ func _remove_item(item: Item) -> void:
 func _show() -> void:
 	set_hidden(false)
 
-func _hide(delay: float = HIDE_DELAY_LONG) -> void:
+func _hide(delay: float = HIDE_DELAY) -> void:
 	if timer.is_stopped() && last_interactive_obj_encountered == null:
 		if delay:
 			timer.start(delay)
@@ -123,8 +122,11 @@ func _on_try_interact(obstable: ObstacleObj) -> void:
 
 	if item != null: # interaction succeed
 		EVENTS.emit_signal("interaction_succeed", obstable)
-		yield(obstable, "is_consumed")
+
+		if (obstable.is_animated):
+			yield(obstable, "is_consumed")
 		_remove_item(item)
+
 	else: # interaction failed
 		EVENTS.emit_signal("interaction_failed", obstable)
 
@@ -139,9 +141,9 @@ func _on_recede_interactable(obj: InteractiveObj):
 	if obj == last_interactive_obj_encountered:
 		last_interactive_obj_encountered = null
 
-		var delay =	HIDE_DELAY_LONG if (obj is ObstacleObj) else 0
+		var delay =	HIDE_DELAY if (obj is ObstacleObj) else 0
 		_hide(delay)
 
 func _on_glow_up_finished(item: Item) -> void:
 	item.disconnect("glow_up_finished", self, "_on_glow_up_finished")
-	_hide(HIDE_DELAY_SMALL)
+	_hide(HIDE_DELAY)

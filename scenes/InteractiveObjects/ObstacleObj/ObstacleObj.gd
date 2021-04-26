@@ -1,6 +1,8 @@
 extends InteractiveObj
 class_name ObstacleObj
 
+onready var is_animated : bool = get_node_or_null("AnimatedSprite") != null
+
 #### ACCESSORS ####
 
 func is_class(value: String): return value == 'ObstacleObj' or .is_class(value)
