@@ -12,23 +12,23 @@
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 30, 42 )
+region = Rect2( 0, 84, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 84, 30, 42 )
+region = Rect2( 30, 84, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 30, 84, 30, 42 )
+region = Rect2( 60, 84, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 60, 42, 30, 42 )
+region = Rect2( 0, 0, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 60, 84, 30, 42 )
+region = Rect2( 60, 42, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
@@ -48,25 +48,25 @@ region = Rect2( 30, 42, 30, 42 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": false,
-"name": "Jump",
+"name": "Land",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
 "loop": false,
-"name": "Land",
-"speed": 13.0
+"name": "Jump",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
@@ -116,3 +116,7 @@ script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.17
+one_shot = true

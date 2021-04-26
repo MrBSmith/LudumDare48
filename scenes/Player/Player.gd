@@ -9,11 +9,14 @@ const MAX_FALL_SPEED = 400
 
 onready var state_machine = get_node("StatesMachine")
 onready var animated_sprite = $AnimatedSprite
+onready var jump_buffer_timer = $JumpBufferTimer
 
 var horizontal_direction = 0
 var vertical_direction = 0
 var velocity := Vector2(0, 0)
 var is_jumping = false;
+
+var jump_buffered : bool = false
 
 export var ignore_gravity := false
 
@@ -22,16 +25,16 @@ export var ignore_gravity := false
 func is_class(value: String): return value == CLASS_NAME or .is_class(value)
 func get_class() -> String: return CLASS_NAME
 
-func get_state():
-	return state_machine.get_state()
-	
-func set_state(state: String):
-	return state_machine.set_state(state)
+func get_state() -> StateBase: return state_machine.get_state()
+func get_state_name() -> String: return state_machine.get_state_name()
+
+func set_state(state: String): return state_machine.set_state(state)
 
 #### BUILT-IN ####
 
 func _ready() -> void:
 	var __ = EVENTS.connect("collect", self, "_on_collect")
+	__ = jump_buffer_timer.connect("timeout", self, "_on_jump_buffer_timer_timeout")
 
 
 func _physics_process(_delta: float) -> void:
@@ -64,11 +67,20 @@ func _unhandled_input(_event: InputEvent) -> void:
 	elif horizontal_direction == 1:
 		animated_sprite.set_flip_h(false)
 	
-	if Input.is_action_just_pressed("jump") && get_state().name in ["Idle", "Move"]:
-		set_state("Jump")
+	if Input.is_action_just_pressed("jump"):
+		if get_state_name() in ["Idle", "Move"]:
+			set_state("Jump")
+		
+		elif get_state_name() == "Fall":
+			jump_buffered = true
+			jump_buffer_timer.start()
+
 
 #### SIGNAL RESPONSES ####
 
 func _on_collect(_item: Item) -> void:
 	# @TODO add animation
 	pass
+
+func _on_jump_buffer_timer_timeout():
+	jump_buffered = false
