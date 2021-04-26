@@ -494,6 +494,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Menu/ScreenTitle/ScreenTitle.gd"
 }, {
+"base": "Node2D",
+"class": "SoundEffectsHandler",
+"language": "GDScript",
+"path": "res://scenes/Level/SoundEffectsServer.gd"
+}, {
 "base": "Node",
 "class": "StateBase",
 "language": "GDScript",
@@ -677,6 +682,7 @@ _global_script_class_icons={
 "SFX_AnimationBase": "",
 "SceneFinder": "",
 "ScreenTitle": "",
+"SoundEffectsHandler": "",
 "StateBase": "",
 "StateLabel": "",
 "StatesMachine": "",

@@ -21,8 +21,6 @@ func interact() -> void:
 
 #### LOGIC ####
 
-func destroy():
-	queue_free()
 
 #### INPUTS ####
 
@@ -32,10 +30,5 @@ func destroy():
 
 func _on_interaction_succeed(obj: InteractiveObj):
 	if obj == self:
-		EVENTS.emit_signal("scatter_object", self, 30.0)
-		$CollisionShape2D.set_disabled(true)
-		$Sprite.set_visible(false)
-		$AudioStreamPlayer.play()
-		yield($AudioStreamPlayer, "finished")
-		
+		EVENTS.emit_signal("play_sound_effect", $AudioStreamPlayer)
 		destroy()
