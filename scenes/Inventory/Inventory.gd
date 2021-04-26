@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name Inventory
 
 const CLASS_NAME = 'Inventory'
+const SHOW_TRANSITION_TIME = 0.6
 
 onready var item_container = get_node("ItemContainer")
 onready var tween = $Tween
@@ -51,7 +52,7 @@ func transition(hide: bool, instant: bool = false):
 	
 	if !instant:
 		tween.interpolate_property(item_container, "rect_position", 
-				from, to, 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+				from, to, SHOW_TRANSITION_TIME, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		
 		tween.start()
 		set_transitioning(true)
@@ -71,7 +72,7 @@ func _on_collect(item: Item) -> void:
 		last_interactive_obj_encountered = null
 
 	var new_item: Item = item.duplicate() if item.is_inside_tree() else item
-	new_item.connect("glow_up_finished", self, "_glow_up_finished")
+	var __ = new_item.connect("glow_up_finished", self, "_glow_up_finished")
 	_show()
 
 	if is_transitioning(): # @TODO and visible
