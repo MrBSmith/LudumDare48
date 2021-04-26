@@ -74,6 +74,8 @@ func _on_body_entered(body: Node) -> void:
 		player_in_area = true
 		if !spectral:
 			EVENTS.emit_signal("approch_interactable", self)
+		elif is_spectral() && is_hidden():
+			EVENTS.emit_signal("invisible_spectral_obj_entered", self, body.velocity.normalized())
 
 
 func _on_body_exited(body: Node) -> void:
