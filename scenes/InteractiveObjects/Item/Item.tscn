@@ -20,10 +20,10 @@ shape = SubResource( 1 )
 [node name="Tween" type="Tween" parent="." index="3"]
 
 [node name="PulsingLight" parent="." index="4" instance=ExtResource( 2 )]
-scale = Vector2( 2.91728e-15, 2.91728e-15 )
+scale = Vector2( 0.175, 0.175 )
 pulse_duration = 1.0
 pulse_delay = 0.4
-light_color = Color( 0.945098, 1, 0, 0.403922 )
+light_color = Color( 1, 1, 1, 0.717647 )
 pulsing = true
 
 [node name="CollectSound" type="AudioStreamPlayer" parent="." index="5"]
