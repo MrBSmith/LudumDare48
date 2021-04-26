@@ -19,6 +19,10 @@ func _ready() -> void:
 #### LOGIC ####
 
 func play(stream_player : AudioStreamPlayer):
+	if stream_player == null:
+		push_error("The given stream_player is null")
+		return
+	
 	var new_stream_player = stream_player.duplicate()
 	call_deferred("add_child", new_stream_player)
 	new_stream_player.call_deferred("play")

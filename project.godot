@@ -109,7 +109,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Isometric/IsoMap/CombatIsoMap.gd"
 }, {
-"base": "ObstacleObj",
+"base": "DestructableObj",
 "class": "Crumble",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.gd"
@@ -118,6 +118,11 @@ _global_script_classes=[ {
 "class": "DescriptionWindow",
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/Windows/DescritpionWindow.gd"
+}, {
+"base": "ObstacleObj",
+"class": "DestructableObj",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/DestructableObj/DestructableObj.gd"
 }, {
 "base": "Node",
 "class": "DirNavHelper",
@@ -569,6 +574,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/ToolStateMachine.gd"
 }, {
+"base": "DestructableObj",
+"class": "Wall",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/Wall/Wall.gd"
+}, {
 "base": "CanvasLayer",
 "class": "WorldMap",
 "language": "GDScript",
@@ -607,6 +617,7 @@ _global_script_class_icons={
 "CombatIsoMap": "",
 "Crumble": "",
 "DescriptionWindow": "",
+"DestructableObj": "",
 "DirNavHelper": "",
 "Disappear": "",
 "Door": "",
@@ -697,6 +708,7 @@ _global_script_class_icons={
 "TextLineContainer": "",
 "TileRenderPart": "",
 "ToolStatesMachine": "",
+"Wall": "",
 "WorldMap": "",
 "WorldMapEditor": "",
 "WorldMapMovingElement": ""

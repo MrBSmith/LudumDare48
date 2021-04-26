@@ -118,6 +118,7 @@ func _on_try_interact(obstable: ObstacleObj) -> void:
 	match(obstable.get_class()):
 		"Chest": needed_item_name = "Key"
 		"Crumble": needed_item_name = "Pickaxe"
+		"Wall": needed_item_name = "Bomb"
 	var item : Item = item_container.get_item(needed_item_name)
 
 	if item != null: # interaction succeed
