@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/Level/Variations/LevelVariationState.gd" type="Script" id=1]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Wall/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Chest/Chest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Door/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/InteractiveObjects/Item/Key/Key.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/InteractiveObjects/Item/Pickaxe/Pickaxe.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Level/LevelBase.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0
+
+[node name="Level5" instance=ExtResource( 8 )]
+
+[node name="VariationA" type="Node" parent="StatesMachine" index="0"]
+script = ExtResource( 1 )
+hidden_obj_array = [ "Key" ]
+
+[node name="VariationB" type="Node" parent="StatesMachine" index="1"]
+script = ExtResource( 1 )
+sky_color = Color( 0.560784, 0.847059, 0.545098, 1 )
+hidden_obj_array = [ "Key", "Chest" ]
+
+[node name="VariationC" type="Node" parent="StatesMachine" index="2"]
+script = ExtResource( 1 )
+sky_color = Color( 0.862745, 0.741176, 0.380392, 1 )
+hidden_obj_array = [ "Door", "Chest" ]
+
+[node name="TileMap" parent="." index="6"]
+tile_data = PoolIntArray( -327673, 0, 196609, -327672, 0, 196609, -327671, 0, 196609, -327670, 0, 131072, -262137, 0, 131074, -262134, 0, 131072, -196601, 0, 131074, -196598, 0, 131072, -131065, 0, 131074, -131062, 0, 131072, -65529, 0, 131074, -65526, 0, 131072, 0, 0, 131073, 1, 0, 131073, 2, 0, 131073, 3, 0, 131074, 4, 0, 196608, 5, 1, 196609, 6, 0, 196609, 7, 1, 196609, 8, 3, 0, 10, 1, 196609, 11, 0, 196609, 12, 0, 196609, 13, 0, 196609, 14, 0, 196609, 15, 0, 196609, 16, 0, 196609, 17, 1, 196609, 18, 1, 196609, 19, 1, 131073, 65536, 0, 131073, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131074, 65555, 0, 131072, 131072, 0, 131073, 131073, 0, 131073, 131074, 0, 131073, 131075, 0, 131074, 131091, 0, 131072, 196608, 0, 131073, 196609, 0, 131073, 196610, 0, 131073, 196611, 0, 131074, 196612, 0, 0, 196613, 4, 0, 196615, 0, 1, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196619, 0, 1, 196620, 0, 1, 196621, 0, 262145, 196622, 0, 262145, 196623, 0, 262145, 196624, 0, 262145, 196625, 0, 262145, 196626, 0, 262146, 196627, 0, 131072, 262144, 0, 131073, 262145, 0, 131073, 262146, 0, 131073, 262147, 0, 131074, 262148, 0, 65536, 262151, 0, 65537, 262152, 0, 65537, 262153, 0, 327681, 262154, 0, 327681, 262155, 0, 327681, 262156, 0, 327681, 262157, 0, 65537, 262158, 0, 65537, 262159, 0, 65537, 262160, 0, 65537, 262161, 0, 65537, 262162, 0, 65538, 262163, 0, 131072, 327680, 0, 131073, 327681, 0, 131073, 327682, 0, 131073, 327683, 0, 131074, 327684, 0, 131072, 327687, 0, 131073, 327688, 0, 131074, 327693, 0, 196608, 327694, 0, 196609, 327695, 0, 196609, 327696, 0, 196609, 327697, 0, 196609, 327698, 0, 196610, 327699, 0, 131072, 393216, 0, 131073, 393217, 0, 196609, 393218, 0, 196609, 393219, 0, 196610, 393220, 0, 196608, 393221, 3, 0, 393223, 0, 196609, 393224, 0, 196610, 393235, 0, 131072, 458752, 0, 131074, 458771, 0, 131072, 524288, 0, 131074, 524307, 0, 131072, 589824, 0, 131074, 589825, 4, 0, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589830, 0, 1, 589831, 0, 1, 589832, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 1, 589840, 0, 1, 589841, 0, 1, 589842, 0, 1, 589843, 0, 131072, 655360, 0, 131073, 655363, 0, 65537, 655364, 0, 65537, 655365, 0, 65537, 655366, 0, 65537, 655367, 0, 65537, 655368, 0, 65537, 655369, 0, 65537, 655370, 0, 65537, 655371, 0, 65537, 655372, 0, 65537, 655373, 0, 65537, 655374, 0, 65537, 655375, 0, 65537, 655376, 0, 65537, 655377, 0, 65537, 655378, 0, 65537, 655379, 0, 131073, 720896, 0, 131073, 720899, 0, 131073, 720900, 0, 131073, 720901, 0, 131073, 720902, 0, 131073, 720903, 0, 131073, 720904, 0, 131073, 720905, 0, 131073, 720906, 0, 131073, 720907, 0, 131073, 720908, 0, 131073, 720909, 0, 131073, 720910, 0, 131073, 720911, 0, 131073, 720912, 0, 131073, 720913, 0, 131073, 720914, 0, 131073, 720915, 0, 131073 )
+
+[node name="Player" parent="." index="7"]
+position = Vector2( 145.403, -10.1343 )
+
+[node name="Exit" parent="." index="8"]
+position = Vector2( 33.0395, 189.28 )
+
+[node name="EntryPoint" parent="." index="9"]
+position = Vector2( 145.85, 4.43467 )
+
+[node name="Door" parent="." index="10" instance=ExtResource( 5 )]
+position = Vector2( 282.371, 129.966 )
+spectral = true
+
+[node name="Crumble" parent="." index="11" instance=ExtResource( 3 )]
+position = Vector2( 96.2972, 60.4439 )
+
+[node name="Pickaxe" parent="." index="12" instance=ExtResource( 7 )]
+position = Vector2( 210.528, 45.5856 )
+
+[node name="Chest" parent="." index="13" instance=ExtResource( 4 )]
+position = Vector2( 276.461, 48.4648 )
+
+[node name="Key" parent="." index="14" instance=ExtResource( 6 )]
+modulate = Color( 1, 1, 1, 0.2 )
+position = Vector2( 161.132, 98.8584 )
+spectral = true
+
+[node name="CollisionShape2D" parent="Key/Area2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="Light2D" parent="Key" index="2"]
+enabled = true
+
+[node name="PulsingLight" parent="Key" index="4"]
+visible = false
+
+[node name="Wall" parent="." index="15" instance=ExtResource( 2 )]
+position = Vector2( 223.063, 125.309 )
+
+[editable path="Key"]
