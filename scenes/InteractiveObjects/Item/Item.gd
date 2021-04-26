@@ -63,9 +63,8 @@ func _start_waving(up: bool = true):
 	tween.interpolate_property(self, "position", get_position(), 
 		initial_position + (vawing_offset * vawing_sign),
 		1.0, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	
-	tween.start()
 
+	tween.start()
 
 #### INPUTS ####
 

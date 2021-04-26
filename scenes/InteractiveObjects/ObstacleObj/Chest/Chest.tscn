@@ -49,7 +49,7 @@ animations = [ {
 "name": "Opening",
 "speed": 13.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 6 ), SubResource( 7 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "Locked",
 "speed": 13.0
@@ -61,11 +61,9 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 1 )
 
-[node name="StateLabel" parent="StatesMachine" index="3"]
-visible = false
-
 [node name="Locked" type="Node" parent="StatesMachine" index="4"]
 script = ExtResource( 4 )
+toggle_state = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 frames = SubResource( 8 )

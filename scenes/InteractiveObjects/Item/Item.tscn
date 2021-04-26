@@ -18,7 +18,7 @@ shape = SubResource( 1 )
 [node name="Tween" type="Tween" parent="." index="3"]
 
 [node name="PulsingLight" parent="." index="4" instance=ExtResource( 2 )]
-scale = Vector2( 1.4243e-06, 1.4243e-06 )
+scale = Vector2( 3.22125e-09, 3.22125e-09 )
 pulse_duration = 1.0
 pulse_delay = 0.4
 light_color = Color( 0.945098, 1, 0, 0.403922 )

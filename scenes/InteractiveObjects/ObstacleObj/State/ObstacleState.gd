@@ -4,6 +4,9 @@ class_name ObstacleState
 
 onready var animated_sprite = owner.get_node_or_null("AnimatedSprite")
 
+# If this bool is true, the state will return to the previous one whenever the animation is over
+export var toggle_state : bool = false
+
 #### ACCESSORS ####
 
 func is_class(value: String): return value == 'ObstacleState' or .is_class(value)
@@ -16,7 +19,6 @@ func _ready() -> void:
 		var __ = animated_sprite.connect("animation_finished", self, "_on_animation_finished")
 
 #### VIRTUALS ####
-
 
 func enter_state():
 	if animated_sprite == null:
@@ -41,4 +43,14 @@ func enter_state():
 #### SIGNAL RESPONSES ####
 
 func _on_animation_finished():
-	pass
+	if !is_current_state() or !toggle_state or animated_sprite == null:
+		return
+
+	var sprite_frames = animated_sprite.get_sprite_frames()
+
+	if animated_sprite.get_animation() == "Start" + name:
+		if sprite_frames != null and sprite_frames.has_animation(name):
+			animated_sprite.play(name)
+
+	states_machine.set_state(states_machine.previous_state)
+

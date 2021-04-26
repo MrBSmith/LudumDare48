@@ -17,7 +17,8 @@ func get_class() -> String: return CLASS_NAME
 
 #### BUILT-IN ####
 
-
+func _ready():
+	var __ = EVENTS.connect("interaction_failed", self, "_on_interaction_failed")
 
 #### VIRTUALS ####
 
@@ -25,10 +26,7 @@ func get_class() -> String: return CLASS_NAME
 
 #### LOGIC ####
 
-func _on_interaction_succeed(obj: InteractiveObj):
-	._on_interaction_succeed(obj)
-	if obj == self:
-		EVENTS.emit_signal("collect", tresure_scene.instance())
+
 
 #### INPUTS ####
 
@@ -48,3 +46,7 @@ func _on_body_exited(body: Node) -> void:
 		player_in_area = false
 		if $StatesMachine.get_state_name() == "Idle" && !spectral:
 			EVENTS.emit_signal("recede_interactable", self)
+
+func _on_interaction_failed(obj: InteractiveObj):
+	if obj == self:
+		$StatesMachine.set_state("Locked")
