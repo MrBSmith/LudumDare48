@@ -27,4 +27,4 @@ func interact() -> void:
 
 func _on_interaction_succeed(obj: InteractiveObj):
 	if obj == self:
-		$StatesMachine.set_state("Opened")
+		$StatesMachine.set_state("Opening")

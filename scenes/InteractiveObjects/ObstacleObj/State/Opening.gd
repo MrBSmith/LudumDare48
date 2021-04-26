@@ -1,8 +1,7 @@
 extends ObstacleState
+class_name Opening
 
-class_name Closed
-
-const CLASS_NAME = 'Closed'
+const CLASS_NAME = 'Opening'
 
 #### ACCESSORS ####
 
@@ -26,3 +25,7 @@ func get_class() -> String: return CLASS_NAME
 
 
 #### SIGNAL RESPONSES ####
+
+func _on_animation_finished():
+	if is_current_state():
+		states_machine.set_state("Opened")

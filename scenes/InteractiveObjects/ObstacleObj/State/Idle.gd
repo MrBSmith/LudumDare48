@@ -1,5 +1,4 @@
 extends ObstacleState
-
 class_name ObstacleIdle
 
 const CLASS_NAME = 'ObstacleIdle'

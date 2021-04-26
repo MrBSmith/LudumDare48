@@ -1,5 +1,4 @@
 extends ObstacleState
-
 class_name Opened
 
 const CLASS_NAME = 'Opened'

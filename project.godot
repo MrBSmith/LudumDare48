@@ -75,9 +75,9 @@ _global_script_classes=[ {
 "path": "res://scenes/InteractiveObjects/ObstacleObj/Chest/Chest.gd"
 }, {
 "base": "ObstacleState",
-"class": "Closed",
+"class": "Closing",
 "language": "GDScript",
-"path": "res://scenes/InteractiveObjects/ObstacleObj/State/Closed.gd"
+"path": "res://scenes/InteractiveObjects/ObstacleObj/State/Closing.gd"
 }, {
 "base": "InteractiveObject",
 "class": "Collectable",
@@ -128,6 +128,11 @@ _global_script_classes=[ {
 "class": "Disappear",
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/StateMachine/AbstractStates/Disappear.gd"
+}, {
+"base": "ObstacleObj",
+"class": "Door",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/Door/Door.gd"
 }, {
 "base": "Position2D",
 "class": "EntryPoint",
@@ -319,6 +324,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/UI/Menu/ListMenu.gd"
 }, {
+"base": "ObstacleState",
+"class": "LockedState",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/State/Locked.gd"
+}, {
 "base": "Object",
 "class": "Math",
 "language": "GDScript",
@@ -373,6 +383,11 @@ _global_script_classes=[ {
 "class": "Opened",
 "language": "GDScript",
 "path": "res://scenes/InteractiveObjects/ObstacleObj/State/Opened.gd"
+}, {
+"base": "ObstacleState",
+"class": "Opening",
+"language": "GDScript",
+"path": "res://scenes/InteractiveObjects/ObstacleObj/State/Opening.gd"
 }, {
 "base": "Node",
 "class": "OptionDataContainer",
@@ -563,7 +578,7 @@ _global_script_class_icons={
 "AppearState": "",
 "Bomb": "",
 "Chest": "",
-"Closed": "",
+"Closing": "",
 "Collectable": "",
 "Collectable_CollectState": "",
 "Collectable_FollowState": "",
@@ -574,6 +589,7 @@ _global_script_class_icons={
 "DescriptionWindow": "",
 "DirNavHelper": "",
 "Disappear": "",
+"Door": "",
 "EntryPoint": "",
 "EventsBase": "",
 "FadeTransition": "",
@@ -612,6 +628,7 @@ _global_script_class_icons={
 "LineContainer": "",
 "LineData": "",
 "ListMenu": "",
+"LockedState": "",
 "Math": "",
 "MenuBase": "",
 "MenuOptionsBase": "",
@@ -623,6 +640,7 @@ _global_script_class_icons={
 "ObstacleObj": "",
 "ObstacleState": "",
 "Opened": "",
+"Opening": "",
 "OptionDataContainer": "",
 "OptionLineContainer": "",
 "PartTween": "",

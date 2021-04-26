@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scenes/Level/FadeTransition.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Level/Tileset.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/Level/EntryPoint/EntryPoint.gd" type="Script" id=13]
 [ext_resource path="res://BabaGodotLib/SFX/Debris/DebrisGenerator.gd" type="Script" id=14]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Door/Door.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -447,3 +448,6 @@ script = ExtResource( 13 )
 
 [node name="Crumble" parent="." instance=ExtResource( 15 )]
 position = Vector2( 48, 152 )
+
+[node name="Door" parent="." instance=ExtResource( 16 )]
+position = Vector2( 256, 64 )
