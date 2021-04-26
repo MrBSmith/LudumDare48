@@ -22,7 +22,7 @@ region = Rect2( 30, 84, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 60, 84, 30, 42 )
+region = Rect2( 0, 0, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
@@ -30,7 +30,7 @@ region = Rect2( 60, 42, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 30, 42 )
+region = Rect2( 60, 84, 30, 42 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
@@ -56,9 +56,9 @@ animations = [ {
 "speed": 10.0
 }, {
 "frames": [ SubResource( 3 ) ],
-"loop": false,
-"name": "Land",
-"speed": 13.0
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
 "loop": false,
@@ -66,9 +66,9 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
+"loop": false,
+"name": "Land",
+"speed": 13.0
 }, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
@@ -121,6 +121,7 @@ pitch_scale = 0.9
 bus = "Sounds"
 
 [node name="StateLabel" type="Label" parent="StatesMachine"]
+visible = false
 margin_left = -7.13525
 margin_top = -55.8927
 margin_right = 32.8647

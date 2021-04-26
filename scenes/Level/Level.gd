@@ -5,8 +5,9 @@ class_name Level
 onready var transition_node = $Transition
 onready var states_machine = $StatesMachine
 
-export var transition_duration : float = 1.0
-export var transition_delay : float = 1.0
+export var transition_duration_in : float = 0.5
+export var transition_duration_out : float = 0.3
+export var transition_delay : float = 0.7
 
 #### ACCESSORS ####
 
@@ -22,7 +23,7 @@ func _ready() -> void:
 	__ = EVENTS.connect("next_level_query", self, "_on_next_level_query")
 	
 	transition_node.set_to_black()
-	transition_node.fade(transition_duration, transition_node.FADE_MODE.FADE_IN, transition_delay)
+	transition_node.fade(transition_duration_in, transition_node.FADE_MODE.FADE_IN, transition_delay)
 
 #### VIRTUALS ####
 
@@ -38,19 +39,15 @@ func get_interactives() -> Array:
 	return objects_array
 
 
-
-
 func increment_variation(increment: int = 1):
-	transition_node.fade(transition_duration)
+	transition_node.fade(transition_duration_in)
 	yield(transition_node, "transition_middle")
 	states_machine.increment_state(increment)
 	yield(transition_node, "transition_finished")
 	$Player.set_global_position($EntryPoint.get_global_position())
 
-
-
 func go_to_next_level():
-	transition_node.fade(transition_duration, transition_node.FADE_MODE.FADE_OUT)
+	transition_node.fade(transition_duration_out, transition_node.FADE_MODE.FADE_OUT)
 	yield(transition_node, "transition_finished")
 	EVENTS.emit_signal("go_to_next_level")
 

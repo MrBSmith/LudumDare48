@@ -136,7 +136,8 @@ func _on_tween_all_completed():
 
 func _on_approch_interactable(obj: InteractiveObj):
 	last_interactive_obj_encountered = obj
-	_show()
+	if obj.is_interactable():
+		_show()
 
 func _on_recede_interactable(obj: InteractiveObj):
 	if obj == last_interactive_obj_encountered:
