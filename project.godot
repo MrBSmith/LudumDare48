@@ -497,7 +497,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "SoundEffectsHandler",
 "language": "GDScript",
-"path": "res://scenes/Level/SoundEffectsServer.gd"
+"path": "res://scenes/Level/SoundEffectsHandler.gd"
 }, {
 "base": "Node",
 "class": "StateBase",
