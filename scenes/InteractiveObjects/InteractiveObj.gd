@@ -45,7 +45,6 @@ func _ready() -> void:
 	var __ = area.connect("body_entered", self, "_on_body_entered")
 	__ = area.connect("body_exited", self, "_on_body_exited")
 
-
 #### VIRTUALS ####
 
 func interact() -> void:

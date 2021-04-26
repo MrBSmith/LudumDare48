@@ -17,7 +17,7 @@ func enter_state() -> void:
 	var interactives = owner.get_interactives()
 	
 	for obj in interactives:
-		var str_path = str(obj.get_path()).replacen("/root/Level/", "")
+		var str_path = str(obj.get_path()).replacen("/root/" + owner.name + "/",  "")
 		obj.set_hidden(str_path in hidden_obj_array)
 	
 	owner.get_node("Background/ColorRect").set_frame_color(sky_color)

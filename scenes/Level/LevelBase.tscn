@@ -1,21 +1,14 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/Level/FadeTransition.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Level/Tileset.png" type="Texture" id=2]
-[ext_resource path="res://scenes/InteractiveObjects/Item/Bomb/Bomb.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Chest/Chest.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Inventory/Inventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/InteractiveObjects/Item/Key/Key.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Level/Exit/Exit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Level/Level.gd" type="Script" id=9]
 [ext_resource path="res://BabaGodotLib/Absract/StateMachine/ToolStateMachine.gd" type="Script" id=10]
-[ext_resource path="res://BabaGodotLib/Absract/StateMachine/StateLabel.gd" type="Script" id=11]
-[ext_resource path="res://scenes/Level/Variations/LevelVariationState.gd" type="Script" id=12]
 [ext_resource path="res://scenes/Level/EntryPoint/EntryPoint.gd" type="Script" id=13]
 [ext_resource path="res://BabaGodotLib/SFX/Debris/DebrisGenerator.gd" type="Script" id=14]
-[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Door/Door.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/Level/SoundEffectsHandler.gd" type="Script" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -360,7 +353,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 6/shapes = [  ]
 6/z_index = 0
 
-[node name="Level" type="Node2D"]
+[node name="LevelBase" type="Node2D"]
 script = ExtResource( 9 )
 
 [node name="SoundEffectsHandler" type="Node2D" parent="."]
@@ -371,26 +364,6 @@ script = ExtResource( 14 )
 
 [node name="StatesMachine" type="Node2D" parent="."]
 script = ExtResource( 10 )
-
-[node name="Variation1" type="Node" parent="StatesMachine"]
-script = ExtResource( 12 )
-
-[node name="Variation2" type="Node" parent="StatesMachine"]
-script = ExtResource( 12 )
-sky_color = Color( 0.368627, 0.72549, 0.72549, 1 )
-
-[node name="Variation3" type="Node" parent="StatesMachine"]
-script = ExtResource( 12 )
-sky_color = Color( 0.368627, 0.72549, 0.643137, 1 )
-
-[node name="StateLabel" type="Label" parent="StatesMachine"]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -430,33 +403,15 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 5
 collision_mask = 5
 format = 1
-tile_data = PoolIntArray( -196595, 0, 131073, -196594, 0, 131073, -65537, 0, 131073, -131072, 0, 131073, -131071, 0, 131073, -131068, 0, 131073, -131067, 0, 131073, -131066, 0, 131073, -131065, 0, 131073, -131064, 0, 131073, -131063, 0, 131073, -131062, 0, 131073, -131061, 0, 131073, -131060, 0, 131073, -131057, 0, 131073, -131056, 0, 131073, -131055, 0, 131073, -131054, 0, 131073, -131053, 0, 131073, -131052, 0, 131073, -1, 0, 131073, -65536, 0, 131073, -65535, 0, 131073, -65532, 0, 131073, -65531, 0, 131073, -65530, 0, 131073, -65529, 0, 131073, -65528, 0, 131073, -65527, 0, 131073, -65526, 0, 131073, -65525, 0, 131073, -65524, 0, 131073, -65523, 0, 131073, -65522, 0, 131073, -65521, 0, 131073, -65520, 0, 131073, -65519, 0, 131073, -65518, 0, 131073, -65517, 0, 131073, -65516, 0, 131073, 65535, 1, 131073, 0, 1, 196609, 1, 1, 196609, 2, 3, 0, 4, 1, 196609, 5, 1, 196609, 6, 1, 196609, 7, 1, 196609, 8, 1, 196609, 9, 1, 196609, 10, 1, 196609, 11, 1, 196609, 12, 1, 196609, 13, 1, 196609, 14, 1, 196609, 15, 1, 196609, 16, 1, 196609, 17, 0, 196609, 18, 0, 196609, 19, 0, 196609, 20, 0, 131073, 131071, 1, 131074, 65556, 0, 131072, 196607, 1, 131074, 131092, 0, 131072, 262143, 1, 131074, 196610, 0, 262144, 196611, 0, 262145, 196612, 0, 262146, 196628, 0, 131072, 327679, 1, 131074, 262146, 0, 327680, 262147, 0, 327681, 262148, 0, 327682, 262164, 0, 131072, 393215, 1, 131074, 327693, 0, 262144, 327694, 0, 262145, 327695, 0, 262145, 327696, 0, 262145, 327697, 0, 262146, 327700, 0, 131072, 458751, 1, 131074, 393229, 0, 327680, 393230, 0, 327681, 393231, 0, 327681, 393232, 0, 327681, 393233, 0, 327682, 393236, 0, 131072, 524287, 1, 131074, 458772, 0, 131072, 589823, 1, 131074, 524308, 0, 131072, 655359, 1, 131074, 589824, 0, 1, 589825, 0, 1, 589826, 4, 0, 589828, 0, 1, 589829, 0, 1, 589830, 0, 1, 589831, 0, 1, 589832, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 1, 589840, 0, 1, 589841, 0, 1, 589842, 0, 1, 589843, 0, 1, 589844, 0, 131072, 720895, 0, 65537, 655360, 0, 65537, 655361, 0, 65537, 655364, 0, 65537, 655365, 0, 65537, 655366, 0, 65537, 655367, 0, 65537, 655368, 0, 65537, 655369, 0, 65537, 655370, 0, 65537, 655371, 0, 65537, 655372, 0, 65537, 655373, 0, 65537, 655374, 0, 65537, 655375, 0, 65537, 655376, 0, 65537, 655377, 0, 65537, 655378, 0, 65537, 655379, 0, 65537, 655380, 0, 131073, 786431, 0, 131073, 720896, 0, 131073, 720897, 0, 131073, 720900, 0, 131073, 720901, 0, 131073, 720902, 0, 131073, 720903, 0, 131073, 720904, 0, 131073, 720905, 0, 131073, 720906, 0, 131073, 720907, 0, 131073, 720908, 0, 131073, 720909, 0, 131073, 720910, 0, 131073, 720911, 0, 131073, 720912, 0, 131073, 720913, 0, 131073, 720914, 0, 131073, 720915, 0, 131073, 720916, 0, 131073 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 47.877, -7.82057 )
 z_index = 1
 
-[node name="Chest" parent="." instance=ExtResource( 5 )]
-position = Vector2( 264.808, 143.329 )
-tresure_name = "Pickaxe"
-
-[node name="Bomb" parent="." instance=ExtResource( 3 )]
-position = Vector2( 73.538, 40.4588 )
-
-[node name="Key" parent="." instance=ExtResource( 7 )]
-position = Vector2( 165.088, 55.8405 )
-
 [node name="Exit" parent="." instance=ExtResource( 8 )]
-position = Vector2( 48, 192 )
+position = Vector2( 45.4773, 361.861 )
 scale = Vector2( 1.496, 0.271 )
 
 [node name="EntryPoint" type="Position2D" parent="."]
 position = Vector2( 48, -8 )
 script = ExtResource( 13 )
-
-[node name="Crumble" parent="." instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 48, 152 )
-
-[node name="Door" parent="." instance=ExtResource( 16 )]
-position = Vector2( 255.251, 64 )
