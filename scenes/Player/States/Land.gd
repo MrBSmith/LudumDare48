@@ -14,6 +14,7 @@ func get_class() -> String: return "Land"
 #### VIRTUALS ####
 
 func enter_state():
+	.enter_state()
 	if owner.jump_buffered:
 		states_machine.set_state("Jump")
 
@@ -29,4 +30,4 @@ func enter_state():
 
 func _on_animation_finished():
 	if is_current_state():
-			states_machine.set_state("Idle")
+		states_machine.set_state("Idle")

@@ -107,7 +107,6 @@ script = ExtResource( 6 )
 script = ExtResource( 9 )
 
 [node name="StateLabel" type="Label" parent="StatesMachine"]
-visible = false
 margin_left = -7.13525
 margin_top = -55.8927
 margin_right = 32.8647
@@ -120,3 +119,6 @@ __meta__ = {
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.17
 one_shot = true
+
+[node name="JumpFallTolerenceTimer" type="Timer" parent="."]
+wait_time = 0.15

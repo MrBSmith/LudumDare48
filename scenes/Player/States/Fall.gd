@@ -16,6 +16,11 @@ func get_class() -> String: return CLASS_NAME
 
 #### VIRTUALS ####
 
+func enter_state():
+	owner.jump_fall_tolorence = true
+	owner.jump_fall_tolerence_timer.start()
+
+
 func update_state(_delta: float):
 	if owner.is_on_floor():
 		return "Land"
