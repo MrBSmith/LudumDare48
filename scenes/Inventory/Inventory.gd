@@ -141,7 +141,7 @@ func _on_recede_interactable(obj: InteractiveObj):
 	if obj == last_interactive_obj_encountered:
 		last_interactive_obj_encountered = null
 
-		var delay =	HIDE_DELAY if (obj is ObstacleObj) else 0
+		var delay =	HIDE_DELAY if (obj is ObstacleObj) else 0.0
 		_hide(delay)
 
 func _on_glow_up_finished(item: Item) -> void:

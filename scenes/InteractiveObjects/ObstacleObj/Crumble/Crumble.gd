@@ -25,6 +25,7 @@ func get_class() -> String: return "Crumble"
 #### SIGNAL RESPONSES ####
 
 func _on_interaction_succeed(obj: InteractiveObj):
+	._on_interaction_succeed(obj)
 	if obj == self:
 		EVENTS.emit_signal("play_sound_effect", $AudioStreamPlayer)
 
