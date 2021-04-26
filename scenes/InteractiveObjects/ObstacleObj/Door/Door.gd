@@ -10,8 +10,7 @@ func get_class() -> String: return "Door"
 #### BUILT-IN ####
 
 func _ready() -> void:
-	var __ = $StatesMachine.connect("state_changed", self, "_on_state_changed")
-	__ = $ExitLevelArea.connect("body_entered", self, "_on_exit_area_body_entered")
+	var __ = $ExitLevelArea.connect("body_entered", self, "_on_exit_area_body_entered")
 
 
 #### VIRTUALS ####
@@ -29,11 +28,11 @@ func _ready() -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_state_changed(new_state_name: String):
+	._on_state_changed(new_state_name)
 	if new_state_name == "Opened":
 		$CollisionShape2D.set_disabled(true)
 	elif new_state_name == "Idle":
 		$CollisionShape2D.set_disabled(false)
-
 
 func _on_body_entered(body: Node):
 	if body.is_class("Player") && $StatesMachine.get_state_name() == "Idle":

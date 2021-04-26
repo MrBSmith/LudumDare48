@@ -50,3 +50,8 @@ func _on_body_exited(body: Node) -> void:
 func _on_interaction_failed(obj: InteractiveObj):
 	if obj == self:
 		$StatesMachine.set_state("Locked")
+
+func _on_interaction_succeed(obstable: InteractiveObj):
+	._on_interaction_succeed(obstable)
+	if obstable == self:
+		EVENTS.emit_signal("collect", tresure_scene.instance())
