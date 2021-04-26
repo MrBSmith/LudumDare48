@@ -184,6 +184,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Player/States/Idle.gd"
 }, {
+"base": "Node",
+"class": "InputMapper",
+"language": "GDScript",
+"path": "res://scenes/Menu/Controls/input_mapper/InputMapper.gd"
+}, {
+"base": "MenuBase",
+"class": "InputMenu",
+"language": "GDScript",
+"path": "res://scenes/Menu/Controls/InputMenu.gd"
+}, {
 "base": "Node2D",
 "class": "InteractiveObj",
 "language": "GDScript",
@@ -479,6 +489,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BabaGodotLib/Absract/SceneFinder/SceneFinder.gd"
 }, {
+"base": "MenuBase",
+"class": "ScreenTitle",
+"language": "GDScript",
+"path": "res://scenes/Menu/ScreenTitle/ScreenTitle.gd"
+}, {
 "base": "Node",
 "class": "StateBase",
 "language": "GDScript",
@@ -600,6 +615,8 @@ _global_script_class_icons={
 "IconsLineContainer": "",
 "IconsLineData": "",
 "Idle": "",
+"InputMapper": "",
+"InputMenu": "",
 "InteractiveObj": "",
 "InteractiveObject": "",
 "Inventory": "",
@@ -659,6 +676,7 @@ _global_script_class_icons={
 "ResizableWindow": "",
 "SFX_AnimationBase": "",
 "SceneFinder": "",
+"ScreenTitle": "",
 "StateBase": "",
 "StateLabel": "",
 "StatesMachine": "",
@@ -681,12 +699,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludum Dare 48"
-run/main_scene="res://scenes/Level/Level.tscn"
+run/main_scene="res://scenes/Menu/ScreenTitle/ScreenTitle.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 EVENTS="*res://Autoloads/Events.gd"
+GAME="*res://Autoloads/Game.gd"
 
 [display]
 
@@ -722,6 +741,20 @@ texture={
 
 [input]
 
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
 left={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
