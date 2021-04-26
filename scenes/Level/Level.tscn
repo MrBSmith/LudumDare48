@@ -380,6 +380,7 @@ script = ExtResource( 12 )
 sky_color = Color( 0.368627, 0.72549, 0.643137, 1 )
 
 [node name="StateLabel" type="Label" parent="StatesMachine"]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 script = ExtResource( 11 )
@@ -407,7 +408,9 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
+margin_top = -0.37458
 margin_right = 1.0
+margin_bottom = -0.374573
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -434,10 +437,10 @@ position = Vector2( 264.808, 143.329 )
 tresure_name = "Pickaxe"
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
-position = Vector2( 158.942, 135.601 )
+position = Vector2( 173.55, 134.103 )
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
-position = Vector2( 185.124, 134.502 )
+position = Vector2( 172.763, 55.8405 )
 
 [node name="Exit" parent="." instance=ExtResource( 8 )]
 position = Vector2( 48, 192 )
@@ -451,4 +454,4 @@ script = ExtResource( 13 )
 position = Vector2( 48, 152 )
 
 [node name="Door" parent="." instance=ExtResource( 16 )]
-position = Vector2( 256, 64 )
+position = Vector2( 255.251, 64 )
