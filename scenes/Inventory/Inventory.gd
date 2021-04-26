@@ -4,6 +4,9 @@ class_name Inventory
 const CLASS_NAME = 'Inventory'
 const SHOW_TRANSITION_TIME = 0.6
 
+const HIDE_DELAY_SMALL = 0.4
+const HIDE_DELAY_LONG = 0.6
+
 onready var item_container = get_node("ItemContainer")
 onready var tween = $Tween
 onready var timer = $Timer
@@ -59,60 +62,6 @@ func transition(hide: bool, instant: bool = false) -> void:
 	else:
 		item_container.set_position(to)
 
-#### INPUTS ####
-
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("toggle_HUD"):
-		set_hidden(!is_hidden())
-
-#### SIGNAL RESPONSES ####
-
-func _on_collect(item: Item) -> void:
-	if item == last_interactive_obj_encountered: # @TODO remove ?
-		last_interactive_obj_encountered = null
-
-	var new_item: Item = item.duplicate() if item.is_inside_tree() else item
-	var __ = new_item.connect("glow_up_finished", self, "_glow_up_finished")
-	_show()
-
-	if is_transitioning(): # @TODO and visible
-		yield(tween, "tween_all_completed")
-
-	_add_item(new_item)
-
-	if !new_item.is_ready: yield(new_item, "ready") # waiting for new_item to be ready
-
-	new_item.glow_up()
-
-
-func _on_try_interact(obstable: ObstacleObj) -> void:
-	# first, we check if we have the item needed to interect with the current obstable
-	var needed_item_name : String = ""
-
-	match(obstable.get_class()):
-		"Chest": needed_item_name = "Key"
-		"Crumble": needed_item_name = "Pickaxe"
-	var item : Item = item_container.get_item(needed_item_name)
-
-	if item != null: # interaction succeed
-		_remove_item(item)
-		EVENTS.emit_signal("interaction_succeed", obstable)
-	else: # interaction failed
-		EVENTS.emit_signal("interaction_failed", obstable)
-
-func _on_tween_all_completed():
-	set_transitioning(false)
-
-func _on_approch_interactable(obj: InteractiveObj):
-	last_interactive_obj_encountered = obj
-	_show()
-
-func _on_recede_interactable(obj: InteractiveObj):
-	if obj == last_interactive_obj_encountered:
-		last_interactive_obj_encountered = null
-
-		var slowly = obj is ObstacleObj
-		_hide(slowly)
 
 func _add_item(item: Item) -> void:
 	item.set_position(Vector2.ZERO)
@@ -128,16 +77,71 @@ func _remove_item(item: Item) -> void:
 	yield(item, "tree_exited")
 	item_container.refresh_items_display()
 
-func _hide(slowly: bool = false) -> void:
+func _show() -> void:
+	set_hidden(false)
+
+func _hide(delay: float = HIDE_DELAY_LONG) -> void:
 	if timer.is_stopped() && last_interactive_obj_encountered == null:
-		if slowly:
-			timer.start()
+		if delay:
+			timer.start(delay)
 			yield(timer, "timeout")
 		set_hidden(true)
 
-func _show() -> void:
-	set_hidden(false)
-	
-func _glow_up_finished(item: Item) -> void:
-	item.disconnect("glow_up_finished", self, "_glow_up_finished")
-	_hide(true)
+#### INPUTS ####
+
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("toggle_HUD"):
+		set_hidden(!is_hidden())
+
+#### SIGNAL RESPONSES ####
+
+func _on_collect(item: Item) -> void:
+	if item == last_interactive_obj_encountered: # @TODO remove ?
+		last_interactive_obj_encountered = null
+
+	var new_item: Item = item.duplicate() if item.is_inside_tree() else item
+	var __ = new_item.connect("glow_up_finished", self, "_on_glow_up_finished")
+	_show()
+
+	if is_transitioning(): # @TODO and visible
+		yield(tween, "tween_all_completed")
+
+	_add_item(new_item)
+
+	if !new_item.is_ready: yield(new_item, "ready") # waiting for new_item to be ready
+
+	new_item.glow_up()
+
+func _on_try_interact(obstable: ObstacleObj) -> void:
+	# first, we check if we have the item needed to interect with the current obstable
+	var needed_item_name : String = ""
+
+	match(obstable.get_class()):
+		"Chest": needed_item_name = "Key"
+		"Crumble": needed_item_name = "Pickaxe"
+	var item : Item = item_container.get_item(needed_item_name)
+
+	if item != null: # interaction succeed
+		EVENTS.emit_signal("interaction_succeed", obstable)
+		yield(obstable, "is_consumed")
+		_remove_item(item)
+	else: # interaction failed
+		EVENTS.emit_signal("interaction_failed", obstable)
+
+func _on_tween_all_completed():
+	set_transitioning(false)
+
+func _on_approch_interactable(obj: InteractiveObj):
+	last_interactive_obj_encountered = obj
+	_show()
+
+func _on_recede_interactable(obj: InteractiveObj):
+	if obj == last_interactive_obj_encountered:
+		last_interactive_obj_encountered = null
+
+		var delay =	HIDE_DELAY_LONG if (obj is ObstacleObj) else 0
+		_hide(delay)
+
+func _on_glow_up_finished(item: Item) -> void:
+	item.disconnect("glow_up_finished", self, "_on_glow_up_finished")
+	_hide(HIDE_DELAY_SMALL)

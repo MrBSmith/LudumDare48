@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Door/Door.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/Level/SoundEffectsHandler.gd" type="Script" id=17]
+[ext_resource path="res://scenes/InteractiveObjects/Item/Pickaxe/Pickaxe.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -441,7 +442,7 @@ position = Vector2( 264.808, 143.329 )
 tresure_name = "Pickaxe"
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
-position = Vector2( 173.55, 134.103 )
+position = Vector2( 73.538, 40.4588 )
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
 position = Vector2( 172.763, 55.8405 )
@@ -459,3 +460,6 @@ position = Vector2( 48, 152 )
 
 [node name="Door" parent="." instance=ExtResource( 16 )]
 position = Vector2( 255.251, 64 )
+
+[node name="Pickaxe" parent="." instance=ExtResource( 18 )]
+position = Vector2( 153.202, 135.222 )

@@ -6,6 +6,7 @@ class_name ObstacleObj
 func is_class(value: String): return value == 'ObstacleObj' or .is_class(value)
 func get_class() -> String: return 'ObstacleObj'
 
+signal is_consumed(obstable)
 
 #### BUILT-IN ####
 
@@ -32,4 +33,5 @@ func _on_interaction_succeed(obj: InteractiveObj) -> void:
 
 func _on_state_changed(state_name: String) -> void:
 	if state_name == "Opened":
-		EVENTS.emit_signal("recede_interactable", self)
+		EVENTS.emit_signal("recede_interactable", self) # force exiting area to handle inventory visibility
+		emit_signal("is_consumed", self)
