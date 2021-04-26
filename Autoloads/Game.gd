@@ -10,8 +10,10 @@ export var menu_dict : Dictionary = {
 export var level_path_array : Array = [
 	"res://scenes/Level/Instances/Level1.tscn",
 	"res://scenes/Level/Instances/Level2.tscn",
-	"res://scenes/Level/Instances/Level3.tscn"
-#	"res://scenes/Level/Instances/LastLevel.tscn"
+	"res://scenes/Level/Instances/Level3.tscn",
+	"res://scenes/Level/Instances/Level4.tscn",
+	"res://scenes/Level/Instances/Level5.tscn",
+	"res://scenes/Level/Instances/LastLevel.tscn"
 ]
 
 var current_level_id : int = 0
