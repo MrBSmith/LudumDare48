@@ -52,7 +52,6 @@ func interact() -> void:
 
 
 func destroy():
-	EVENTS.emit_signal("scatter_object", self, 30.0)
 	queue_free()
 
 #### LOGIC ####

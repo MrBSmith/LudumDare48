@@ -1,11 +1,10 @@
-tool
 extends DestructableObj
-class_name Crumble
+class_name Wall
 
 #### ACCESSORS ####
 
-func is_class(value: String): return value == "Crumble" or .is_class(value)
-func get_class() -> String: return "Crumble"
+func is_class(value: String): return value == "Wall" or .is_class(value)
+func get_class() -> String: return "Wall"
 
 
 #### BUILT-IN ####
@@ -25,4 +24,3 @@ func get_class() -> String: return "Crumble"
 
 
 #### SIGNAL RESPONSES ####
-

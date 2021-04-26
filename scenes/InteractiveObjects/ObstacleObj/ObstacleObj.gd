@@ -22,7 +22,9 @@ func interact() -> void:
 	if $StatesMachine.get_state_name() == "Idle" && is_interactable():
 		EVENTS.emit_signal("try_interact", self)
 
+
 #### LOGIC ####
+
 
 #### INPUTS ####
 

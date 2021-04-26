@@ -27,5 +27,5 @@ func get_class() -> String: return "ScreenTitle"
 
 func _on_menu_option_chose(option: MenuOptionsBase) -> void:
 	match(option.name):
-		"Play": EVENTS.emit_signal("go_to_next_level")
+		"Play": EVENTS.emit_signal("go_to_level", 0)
 		"Controls": navigate_sub_menu(GAME.generate_menu("InputMenu"))
