@@ -1,6 +1,8 @@
 extends CanvasLayer
 class_name FadeTransition
 
+enum FADE_MODE {FADE_IN_OUT, FADE_IN, FADE_OUT}
+
 onready var tween = $Tween
 
 signal transition_finished
@@ -22,20 +24,30 @@ func get_class() -> String: return "FadeTransition"
 
 #### LOGIC ####
 
-func fade():
-	tween.interpolate_property($ColorRect, "color", Color(0,0,0,0), Color.black,
-				 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
+func fade(fade_time: float = 1.0, fade_mode: int = FADE_MODE.FADE_IN_OUT, delay : float = 0.0) -> void:
+	var duration = fade_time / 2 if fade_mode == FADE_MODE.FADE_IN_OUT else fade_time
 	
-	tween.start()
-	yield(tween, "tween_all_completed")
-	emit_signal("transition_middle")
+	if fade_mode != FADE_MODE.FADE_IN:
+		tween.interpolate_property($ColorRect, "color", Color(0,0,0,0), Color.black,
+					 duration, Tween.TRANS_LINEAR, Tween.EASE_IN, delay)
+		
+		tween.start()
+		yield(tween, "tween_all_completed")
+		emit_signal("transition_middle")
 	
-	tween.interpolate_property($ColorRect, "color", Color.black, Color(0,0,0,0),
-				 0.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	if fade_mode != FADE_MODE.FADE_OUT:
+		tween.interpolate_property($ColorRect, "color", Color.black, Color(0,0,0,0),
+					 duration, Tween.TRANS_LINEAR, Tween.EASE_OUT, delay)
+		
+		tween.start()
+		yield(tween, "tween_all_completed")
 	
-	tween.start()
-	yield(tween, "tween_all_completed")
 	emit_signal("transition_finished")
+
+
+func set_to_black() -> void:
+	$ColorRect.set_frame_color(Color.black)
+
 
 
 #### INPUTS ####

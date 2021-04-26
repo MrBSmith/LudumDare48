@@ -18,3 +18,5 @@ signal recede_interactable(obj)
 #### SOUNDS ####
 
 signal play_sound_effect(stream_player)
+
+signal next_level_query()
