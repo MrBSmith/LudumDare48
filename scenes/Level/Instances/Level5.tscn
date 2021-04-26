@@ -16,7 +16,7 @@ radius = 20.0
 
 [node name="VariationA" type="Node" parent="StatesMachine" index="0"]
 script = ExtResource( 1 )
-hidden_obj_array = [ "Key" ]
+hidden_obj_array = [ "Key", "Door" ]
 
 [node name="VariationB" type="Node" parent="StatesMachine" index="1"]
 script = ExtResource( 1 )
@@ -41,8 +41,7 @@ position = Vector2( 33.0395, 189.28 )
 position = Vector2( 145.85, 4.43467 )
 
 [node name="Door" parent="." index="10" instance=ExtResource( 5 )]
-position = Vector2( 282.371, 129.966 )
-spectral = true
+position = Vector2( 271.656, 129.966 )
 
 [node name="Crumble" parent="." index="11" instance=ExtResource( 3 )]
 position = Vector2( 96.2972, 60.4439 )

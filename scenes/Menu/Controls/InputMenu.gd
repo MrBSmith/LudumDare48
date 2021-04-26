@@ -54,5 +54,5 @@ func _on_PlayButton_pressed():
 	for action_name in $InputMapper.get_selected_profile().keys(): #get the name, get the key
 		$InputMapper.change_action_key(action_name, $InputMapper.get_selected_profile()[action_name]) #change the key
 		
-	queue_free()
+	navigate_sub_menu(GAME.generate_menu("ScreenTitle"))
 	get_tree().paused = false
