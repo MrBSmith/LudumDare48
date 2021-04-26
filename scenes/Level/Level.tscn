@@ -16,7 +16,7 @@
 [ext_resource path="res://BabaGodotLib/SFX/Debris/DebrisGenerator.gd" type="Script" id=14]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Crumble/Crumble.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/InteractiveObjects/ObstacleObj/Door/Door.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/Level/SoundEffectsServer.gd" type="Script" id=17]
+[ext_resource path="res://scenes/Level/SoundEffectsHandler.gd" type="Script" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
