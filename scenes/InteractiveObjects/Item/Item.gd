@@ -9,9 +9,9 @@ onready var tween = $Tween
 onready var initial_position = get_position()
 
 var vawing_up : bool = bool(Math.randi_range(0, 1))
+var is_ready : bool = false
 
 export var vawing_offset := Vector2(0, 3)
-
 export var collected = false setget set_collected, is_collected
 
 signal glow_up_finished(item)
@@ -46,7 +46,6 @@ func _ready() -> void:
 		$PulsingLight.set_visible(false)
 
 	is_ready = true
-
 
 #### VIRTUALS ####
 

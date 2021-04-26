@@ -8,10 +8,12 @@ export var menu_dict : Dictionary = {
 }
 
 export var level_path_array : Array = [
-	"res://scenes/Level/Level.tscn"
+	"res://scenes/Level/Instances/Level1.tscn",
+	"res://scenes/Level/Instances/Level2.tscn",
+	"res://scenes/Level/Instances/LastLevel.tscn"
 ]
 
-var current_level_id : int = -1
+var current_level_id : int = 0
 
 func _ready() -> void:
 	var __ = EVENTS.connect("go_to_next_level", self, "_on_go_to_next_level")
