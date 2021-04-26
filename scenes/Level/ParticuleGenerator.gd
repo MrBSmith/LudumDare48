@@ -21,6 +21,16 @@ func _ready() -> void:
 
 #### LOGIC ####
 
+func generate_particule(pos: Vector2, dir: Vector2):
+	var particule = particule_scene.instance()
+	particule.set_position(pos)
+	
+	add_child(particule)
+	if !particule.is_ready:
+		yield(particule, "ready")
+	
+	var particule_material = particule.get_process_material()
+	particule_material.set_direction(Vector3(dir.x, dir.y, 0))
 
 
 #### INPUTS ####
@@ -30,4 +40,4 @@ func _ready() -> void:
 #### SIGNAL RESPONSES ####
 
 func _on_invisible_spectral_obj_entered(obj: InteractiveObj, player_velocity_dir: Vector2) -> void:
-	pass
+	generate_particule(obj.get_position(), player_velocity_dir)
