@@ -441,10 +441,10 @@ position = Vector2( 264.808, 143.329 )
 tresure_name = "Pickaxe"
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
-position = Vector2( 173.55, 134.103 )
+position = Vector2( 73.538, 40.4588 )
 
 [node name="Key" parent="." instance=ExtResource( 7 )]
-position = Vector2( 172.763, 55.8405 )
+position = Vector2( 165.088, 55.8405 )
 
 [node name="Exit" parent="." instance=ExtResource( 8 )]
 position = Vector2( 48, 192 )
