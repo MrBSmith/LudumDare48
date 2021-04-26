@@ -17,6 +17,7 @@ var current_level_id : int = 0
 
 func _ready() -> void:
 	var __ = EVENTS.connect("go_to_next_level", self, "_on_go_to_next_level")
+	__ = EVENTS.connect("go_to_level", self, "_on_go_to_level")
 
 
 #### LOGIC ####
@@ -37,9 +38,18 @@ func generate_level(level_id: int) -> Level:
 	return level_path_array[level_id].instance()
 
 
+func go_to_current_level():
+	var level_scene = load(level_path_array[current_level_id])
+	var __ = get_tree().change_scene_to(level_scene)
+
+
 #### SIGNAL RESPONSES ####
 
 func _on_go_to_next_level():
 	current_level_id = wrapi(current_level_id + 1, 0, level_path_array.size())
-	var level_scene = load(level_path_array[current_level_id])
-	var __ = get_tree().change_scene_to(level_scene)
+	go_to_current_level()
+
+
+func _on_go_to_level(level_id: int):
+	current_level_id = level_id
+	go_to_current_level()
