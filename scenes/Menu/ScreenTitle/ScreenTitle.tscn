@@ -70,9 +70,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -80.0
-margin_top = 46.0
+margin_top = 51.0
 margin_right = 84.0
-margin_bottom = 72.0
+margin_bottom = 77.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
 text = "Press enter to begin"
@@ -82,18 +82,18 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="." index="4"]
-margin_top = 11.0
+margin_top = 23.0
 margin_right = 320.0
-margin_bottom = 191.0
+margin_bottom = 203.0
 texture = ExtResource( 2 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="5"]
 position = Vector2( 32, 144 )
 frames = SubResource( 6 )
+frame = 2
 playing = true
 
 [node name="Tween" type="Tween" parent="." index="6"]
@@ -101,10 +101,10 @@ playing = true
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="7"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -97.0
-margin_top = -2.0
-margin_bottom = 62.0
-custom_constants/separation = -4
+margin_left = -103.0
+margin_right = -6.0
+margin_bottom = 64.0
+custom_constants/separation = -3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,28 +117,37 @@ custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
 text = "Space, up or Z to jump"
 align = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer" index="1"]
-margin_top = 9.0
+[node name="Label3" type="Label" parent="VBoxContainer" index="1"]
+margin_top = 10.0
 margin_right = 97.0
-margin_bottom = 22.0
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
-text = "left or Q to go left"
-align = 2
-
-[node name="Label3" type="Label" parent="VBoxContainer" index="2"]
-margin_top = 18.0
-margin_right = 97.0
-margin_bottom = 31.0
+margin_bottom = 23.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
 text = "right or D to go right"
 align = 2
 
-[node name="Label4" type="Label" parent="VBoxContainer" index="3"]
-margin_top = 27.0
+[node name="Label2" type="Label" parent="VBoxContainer" index="2"]
+margin_top = 20.0
 margin_right = 97.0
-margin_bottom = 40.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
+text = "left or Q to go left"
+align = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer" index="3"]
+margin_top = 30.0
+margin_right = 97.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
+text = "F1 to show inventory"
+align = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer" index="4"]
+margin_top = 40.0
+margin_right = 97.0
+margin_bottom = 53.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
 text = "Enter to interact"
