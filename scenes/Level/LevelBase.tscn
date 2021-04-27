@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/Level/FadeTransition.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Level/Tileset.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Level/ParticuleGenerator.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Level/Background/Nauges.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Inventory/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Level/Exit/Exit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Level/Level.gd" type="Script" id=9]
@@ -378,6 +379,14 @@ anchor_bottom = 1.0
 color = Color( 0.368627, 0.65098, 0.72549, 1 )
 __meta__ = {
 "_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
