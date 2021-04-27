@@ -1,9 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://BabaGodotLib/Fonts/BoldCapsPixel24.tres" type="DynamicFont" id=1]
-[ext_resource path="res://BabaGodotLib/UI/Menu/OptionButtons/MenuOptionBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://BabaGodotLib/Fonts/BoldCapsPixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Menu/ScreenTitle/ScreenTitle.png" type="Texture" id=2]
 [ext_resource path="res://BabaGodotLib/UI/Menu/MenuBase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Menu/ScreenTitle/ScreenTitle.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Menu/ScreenTitle/CharaSleepingTileset.png" type="Texture" id=5]
+[ext_resource path="res://BabaGodotLib/Fonts/BoldCapsPixel24.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 73, 65 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 73, 0, 73, 65 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 146, 0, 73, 65 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 219, 0, 73, 65 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
 
 [node name="ScreenTitle" instance=ExtResource( 3 )]
 script = ExtResource( 4 )
@@ -19,22 +49,97 @@ margin_right = 29.26
 margin_bottom = 76.6479
 
 [node name="V_OptContainer" parent="HBoxContainer" index="0"]
-margin_left = 6.0
-margin_right = 51.0
+margin_left = 29.0
+margin_right = 29.0
 margin_bottom = 71.0
-
-[node name="Play" parent="HBoxContainer/V_OptContainer" index="0" instance=ExtResource( 2 )]
-margin_right = 45.0
-margin_bottom = 19.0
-custom_fonts/font = ExtResource( 1 )
-text = "Play"
-
-[node name="Controls" parent="HBoxContainer/V_OptContainer" index="1" instance=ExtResource( 2 )]
-margin_top = 23.0
-margin_right = 45.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 1 )
-text = "Controls"
 
 [node name="OptionChoiceSound" parent="." index="1"]
 bus = "Master"
+
+[node name="ColorRect" type="ColorRect" parent="." index="2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.239216, 0.639216, 0.74902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="." index="3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = 46.0
+margin_right = 84.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
+text = "Press enter to begin"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="." index="4"]
+margin_top = 11.0
+margin_right = 320.0
+margin_bottom = 191.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="5"]
+position = Vector2( 32, 144 )
+frames = SubResource( 6 )
+playing = true
+
+[node name="Tween" type="Tween" parent="." index="6"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="7"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -97.0
+margin_top = -2.0
+margin_bottom = 62.0
+custom_constants/separation = -4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer" index="0"]
+margin_right = 97.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
+text = "Space, up or Z to jump"
+align = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer" index="1"]
+margin_top = 9.0
+margin_right = 97.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
+text = "left or Q to go left"
+align = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer" index="2"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
+text = "right or D to go right"
+align = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer" index="3"]
+margin_top = 27.0
+margin_right = 97.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.137255, 0.0980392, 0.152941, 1 )
+text = "Enter to interact"
+align = 2
