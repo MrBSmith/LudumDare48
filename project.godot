@@ -736,6 +736,7 @@ config/icon="res://icon.png"
 
 EVENTS="*res://Autoloads/Events.gd"
 GAME="*res://Autoloads/Game.gd"
+MUSIC="*res://Autoloads/Music/Music.tscn"
 
 [display]
 
