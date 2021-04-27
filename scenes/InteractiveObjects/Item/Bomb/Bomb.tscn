@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/InteractiveObjects/Item/ItemTileset.png" type="Texture" id=1]
+[ext_resource path="res://scenes/InteractiveObjects/Item/Item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/InteractiveObjects/Item/Bomb/Bomb.gd" type="Script" id=3]
+
+[node name="Bomb" instance=ExtResource( 2 )]
+position = Vector2( 0, -2.68209 )
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+
+[node name="Light2D" parent="." index="2"]
+color = Color( 0, 1, 1, 0.709804 )
