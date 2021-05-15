@@ -35,7 +35,7 @@ func _on_interaction_succeed(obj: InteractiveObj) -> void:
 	if obj == self:
 		$StatesMachine.set_state("Opening")
 
-func _on_state_changed(state_name: String) -> void:
-	if state_name == "Opened":
+func _on_state_changed(state: StateBase) -> void:
+	if state.name == "Opened":
 		EVENTS.emit_signal("recede_interactable", self) # force exiting area to handle inventory visibility
 		emit_signal("is_consumed", self)

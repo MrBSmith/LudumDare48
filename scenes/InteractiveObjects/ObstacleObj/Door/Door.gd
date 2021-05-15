@@ -31,11 +31,11 @@ func _ready() -> void:
 
 #### SIGNAL RESPONSES ####
 
-func _on_state_changed(new_state_name: String):
-	._on_state_changed(new_state_name)
-	if new_state_name == "Opened":
+func _on_state_changed(state: StateBase):
+	._on_state_changed(state)
+	if state.name == "Opened":
 		$CollisionShape2D.set_disabled(true)
-	elif new_state_name == "Idle":
+	elif state.name == "Idle":
 		$CollisionShape2D.set_disabled(false)
 
 

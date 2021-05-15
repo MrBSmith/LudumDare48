@@ -18,7 +18,5 @@ signal invisible_spectral_obj_entered(obj, player_velocity_dir)
 
 #### SOUNDS ####
 
-signal play_sound_effect(stream_player)
-
 signal next_level_query()
 

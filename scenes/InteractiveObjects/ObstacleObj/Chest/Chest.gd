@@ -56,7 +56,7 @@ func _on_interaction_succeed(obstable: InteractiveObj):
 	if obstable == self:
 		EVENTS.emit_signal("collect", tresure_scene.instance())
 
-func _on_state_changed(state_name: String) -> void:
-	if state_name == "Opened":
+func _on_state_changed(state: StateBase) -> void:
+	if state.name == "Opened":
 #		EVENTS.emit_signal("recede_interactable", self) # force exiting area to handle inventory visibility
 		emit_signal("is_consumed", self)

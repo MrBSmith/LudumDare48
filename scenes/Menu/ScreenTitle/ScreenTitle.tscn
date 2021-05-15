@@ -38,25 +38,10 @@ animations = [ {
 [node name="ScreenTitle" instance=ExtResource( 3 )]
 script = ExtResource( 4 )
 
-[node name="HBoxContainer" parent="." index="0"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -29.26
-margin_top = 4.648
-margin_right = 29.26
-margin_bottom = 76.6479
-
-[node name="V_OptContainer" parent="HBoxContainer" index="0"]
-margin_left = 29.0
-margin_right = 29.0
-margin_bottom = 71.0
-
-[node name="OptionChoiceSound" parent="." index="1"]
+[node name="OptionChoiceSound" parent="." index="0"]
 bus = "Master"
 
-[node name="ColorRect" type="ColorRect" parent="." index="2"]
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.239216, 0.639216, 0.74902, 1 )
@@ -64,7 +49,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="." index="3"]
+[node name="Label" type="Label" parent="." index="2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -81,7 +66,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="." index="4"]
+[node name="TextureRect" type="TextureRect" parent="." index="3"]
 margin_top = 23.0
 margin_right = 320.0
 margin_bottom = 203.0
@@ -90,15 +75,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="5"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="4"]
 position = Vector2( 32, 144 )
 frames = SubResource( 6 )
-frame = 1
+frame = 3
 playing = true
 
-[node name="Tween" type="Tween" parent="." index="6"]
+[node name="Tween" type="Tween" parent="." index="5"]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="7"]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="6"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -103.0

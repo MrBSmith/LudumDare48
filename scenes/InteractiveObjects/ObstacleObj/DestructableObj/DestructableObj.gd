@@ -35,7 +35,7 @@ func _on_interaction_succeed(obj: InteractiveObj):
 		EVENTS.emit_signal("play_sound_effect", $AudioStreamPlayer)
 
 
-func _on_state_changed(state_name: String) -> void:
-	._on_state_changed(state_name)
-	if state_name == "Opened":
+func _on_state_changed(state: StateBase) -> void:
+	._on_state_changed(state)
+	if state.name == "Opened":
 		destroy()
